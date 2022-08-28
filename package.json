@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "config": "ts-node -O '{\"module\": \"commonjs\"}' ./config.index.ts",
+    "start": "npm run config && ng serve",
+    "build": "npm run config && ng build",
+    "build-prod": "npm run config && ng build --configuration=production --output-hashing=all",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
