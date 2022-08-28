@@ -1,0 +1,10 @@
+<div class="alert alert-success">Profile component!</div>
+
+<div class="alert alert-warning" *appUser>
+	Content for authorized users only (e.g. display email, send message)!
+	{{ auth.user$ | async | json }}
+</div>
+
+<div class="alert alert-danger" *appUserRole="[Role.Admin]">
+	Content for admin users only (e.g. enable/disable user)!
+</div>
