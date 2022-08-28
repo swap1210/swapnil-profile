@@ -11,6 +11,8 @@ import { AuthService } from './auth.service';
 export class CommonService {
   public header$: BehaviorSubject<any>;
   public body$: BehaviorSubject<any>;
+  public darkThemeState$: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   constructor(
     private afs: AngularFirestore, // Inject Firestore service
     private auth: AuthService
@@ -44,5 +46,9 @@ export class CommonService {
           console.log('Done looking for common data');
         },
       });
+  };
+
+  toggleTheme = (mode: boolean) => {
+    this.darkThemeState$.next(mode);
   };
 }

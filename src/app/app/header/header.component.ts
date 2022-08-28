@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     appname: '',
   };
   notifications: Notification[] = [];
+  themeVal = false;
 
   constructor(
     private router: Router,
@@ -60,6 +61,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.header = userObj_in_header;
         }
       });
+
+    this.commData.darkThemeState$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((currentThemeVal) => {
+        this.themeVal = currentThemeVal;
+      });
   }
 
   logout() {
@@ -75,5 +82,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   switchTheme = (): void => {
     //send new value to app component
+    this.commData.toggleTheme(!this.themeVal);
   };
 }

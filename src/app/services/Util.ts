@@ -1,6 +1,9 @@
 export const Util = {
   //all the static data of the site can be loaded from such static classes for easy updation but not frequent
   appName: 'Swapnil Patel',
+  config: {
+    disableWelcomeMessage: true,
+  },
   footer: {
     tnc: {
       icon: 'https://avatars.githubusercontent.com/u/16183748',
