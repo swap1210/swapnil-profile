@@ -1,6 +1,7 @@
 export const Util = {
   //all the static data of the site can be loaded from such static classes for easy updation but not frequent
   appName: 'Swapnil Patel',
+  appDesc: 'Full Stack Developer',
   config: {
     disableWelcomeMessage: true,
   },

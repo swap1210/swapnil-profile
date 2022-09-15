@@ -1,6 +1,7 @@
 .parent {
   display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
+  height: 100%;
 }
 
 header {

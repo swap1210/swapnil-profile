@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Header } from 'src/app/models/header';
@@ -21,12 +28,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAdmin = false;
   header: Header = {
     appIconLink: '',
-    appname: '',
+    appName: '',
+    appDesc: '',
+    linkedin: { link: '', logo: '' },
+    github: { link: '', logo: '' },
   };
   notifications: Notification[] = [];
   themeVal = false;
+  @ViewChild('linkedinLogo')
+  linkedinLogo!: ElementRef;
+  @ViewChild('githubLogo')
+  githubLogo!: ElementRef;
 
   constructor(
+    private renderer2: Renderer2,
     private router: Router,
     private authService: AuthService,
     private commData: CommonService
@@ -36,7 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.user$
       .pipe(takeUntil(this.destroy$))
       .subscribe((userObj_in_header) => {
-        if (!!userObj_in_header) {
+        if (userObj_in_header && Object.keys(userObj_in_header).length != 0) {
           this.isAuthorized = userObj_in_header?.role >= Role.Visitor;
           this.isUser = userObj_in_header?.role == Role.User;
           this.isAdmin = userObj_in_header?.role == Role.Admin;
@@ -57,8 +72,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.commData.header$
       .pipe(takeUntil(this.destroy$))
       .subscribe((userObj_in_header) => {
-        if (userObj_in_header) {
+        if (Object.keys(userObj_in_header).length != 0) {
           this.header = userObj_in_header;
+          this.renderer2.setAttribute(
+            this.linkedinLogo.nativeElement,
+            'd',
+            this.header.linkedin.logo
+          );
+          this.renderer2.setAttribute(
+            this.githubLogo.nativeElement,
+            'd',
+            this.header.github.logo
+          );
         }
       });
 

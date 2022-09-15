@@ -43,15 +43,7 @@ $profile-ang-primary: mat.define-palette($mat-profile-primary);
 $profile-ang-accent: mat.define-palette($mat-profile-accent);
 $profile-ang-warn: mat.define-palette($mat-profile-warn);
 
-$profile-app: mat.define-light-theme(
-  (
-    color: (
-      primary: $profile-ang-primary,
-      accent: $profile-ang-accent,
-      warn: $profile-ang-warn,
-    ),
-  )
-);
+//Dark theme start
 
 $mat-profile-dark-warn: (
   50: #0b0c10,
@@ -95,23 +87,3 @@ $mat-profile-dark-primary: (
 $profile-ang-dark-primary: mat.define-palette($mat-profile-dark-primary);
 $profile-ang-dark-accent: mat.define-palette($mat-profile-dark-accent);
 $profile-ang-dark-warn: mat.define-palette($mat-profile-dark-warn);
-
-$profile-dark-theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: $profile-ang-dark-primary,
-      accent: $profile-ang-dark-accent,
-      warn: $profile-ang-dark-warn,
-    ),
-  )
-);
-
-@include mat.all-component-themes($profile-app);
-.darkMode {
-  @include mat.all-component-colors($profile-dark-theme);
-}
-// @include mat.button-theme($profile-app);
-// @include mat.toolbar-theme($profile-app);
-// @include mat.table-theme($profile-app);
-// @include mat.slide-toggle-theme($profile-app);
-// @include mat.datepicker-theme($profile-app);
