@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/swapnil-profile",
+    "public": "swapnil-profile",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
