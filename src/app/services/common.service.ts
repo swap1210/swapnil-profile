@@ -39,6 +39,7 @@ export class CommonService {
       .get()
       .subscribe({
         next: (val) => {
+          console.log('comm basic', val.data());
           self.header$.next(val.data().header);
           self.body$.next(val.data().body);
         },

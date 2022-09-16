@@ -18,6 +18,8 @@ import { FirebaseOptions } from '@angular/fire/app';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompressedMatModule } from './compressed-mat/compressed-mat.module';
+import { GooglyEyeComponent } from './fun/googly-eye/googly-eye.component';
+import { ImpDialogComponent } from './app/imp-dialog/imp-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CompressedMatModule } from './compressed-mat/compressed-mat.module';
     UserRoleDirective,
     FooterComponent,
     HeaderComponent,
+    GooglyEyeComponent,
+    ImpDialogComponent,
   ],
   imports: [
     BrowserModule,
