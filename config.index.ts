@@ -4,7 +4,7 @@ const targetPath1 = './src/environments/environment.ts';
 const targetPath2 = './src/environments/environment.prod.ts';
 const projectId = 'swapnilpatel-projects';
 let apikey = process.env['APIKEY'];
-let prod_apikey = process.env['PROD_APIKEY'];
+let prod_apikey = process.env['APIKEY'];
 let envVersion = '1.0';
 
 const envConfigFile1 = `export const environment = {
@@ -30,17 +30,17 @@ const envConfigFile2 = `export const environment = {
 };
 `;
 mkdir('./src/environments/', (err) => {
-	if (err) {
-		return console.log(err);
-	}
+  if (err) {
+    return console.log(err);
+  }
 });
 writeFile(targetPath1, envConfigFile1, 'utf8', (err) => {
-	if (err) {
-		return console.log(err);
-	}
+  if (err) {
+    return console.log(err);
+  }
 });
 writeFile(targetPath2, envConfigFile2, 'utf8', (err) => {
-	if (err) {
-		return console.log(err);
-	}
+  if (err) {
+    return console.log(err);
+  }
 });

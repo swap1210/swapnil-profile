@@ -12,7 +12,6 @@ jobs:
 
     env:
       APIKEY: "${{ secrets.APIKEY }}"
-      PROD_APIKEY: "${{ secrets.APIKEY }}"
     steps:
       - uses: actions/checkout@v2
       # - run: touch 'src/environments/environment.ts';
