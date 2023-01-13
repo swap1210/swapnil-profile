@@ -1,0 +1,19 @@
+/* my-component.scss */
+@use "@angular/material" as mat;
+@import "../../../theme/vars.scss";
+
+.day {
+  background-color: mat.get-color-from-palette($profile-ang-primary, 500);
+  color: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
+}
+.night {
+  background-color: mat.get-color-from-palette($profile-ang-dark-primary, 500);
+  color: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
+}
+.recShape {
+  height: 2em;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  padding: 2.5em;
+}

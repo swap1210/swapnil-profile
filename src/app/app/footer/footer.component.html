@@ -1,3 +1,12 @@
-<div class="text-center">
-	{{ footer_data | json }}
+<div
+  [ngClass]="{
+    recShape: true,
+    night: (this.cs.darkThemeState$ | async),
+    day: !(this.cs.darkThemeState$ | async)
+  }"
+>
+  <app-footer-card
+    *ngFor="let rec of cs.footer$ | async"
+    [footerData]="rec"
+  ></app-footer-card>
 </div>

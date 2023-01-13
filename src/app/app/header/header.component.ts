@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     github: { link: '', logo: '' },
   };
   notifications: Notification[] = [];
-  themeVal = false;
+  // themeVal = false;
   @ViewChild('linkedinLogo')
   linkedinLogo!: ElementRef;
   @ViewChild('githubLogo')
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private renderer2: Renderer2,
     private router: Router,
     private authService: AuthService,
-    private commData: CommonService
+    public commData: CommonService
   ) {}
 
   ngOnInit() {
@@ -87,11 +87,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.commData.darkThemeState$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((currentThemeVal) => {
-        this.themeVal = currentThemeVal;
-      });
+    // this.commData.darkThemeState$
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((currentThemeVal) => {
+    //     this.themeVal = currentThemeVal;
+    //   });
   }
 
   logout() {
@@ -107,6 +107,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   switchTheme = (): void => {
     //send new value to app component
-    this.commData.toggleTheme(!this.themeVal);
+    this.commData.darkThemeState$.next(
+      !this.commData.darkThemeState$.getValue()
+    );
   };
 }

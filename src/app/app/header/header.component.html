@@ -17,7 +17,9 @@
       viewBox="0 0 24 24"
     >
       <path
-        ngClass="{{ themeVal ? 'linkDarkLogo' : 'linkLogo' }}"
+        ngClass="{{
+          (commData.darkThemeState$ | async) ? 'linkDarkLogo' : 'linkLogo'
+        }}"
         #linkedinLogo
       ></path>
     </svg>
@@ -36,7 +38,9 @@
       data-view-component="true"
     >
       <path
-        ngClass="{{ themeVal ? 'linkDarkLogo' : 'linkLogo' }}"
+        ngClass="{{
+          (commData.darkThemeState$ | async) ? 'linkDarkLogo' : 'linkLogo'
+        }}"
         fill-rule="evenodd"
         #githubLogo
       ></path>
@@ -47,7 +51,11 @@
     (click)="switchTheme()"
     aria-label="swtch theme between dark and light"
   >
-    <mat-icon>brightness_medium</mat-icon>
+    <mat-icon
+      [innerText]="
+        (commData.darkThemeState$ | async) ? 'dark_mode' : 'brightness_5'
+      "
+    ></mat-icon>
   </button>
   <!-- <ul class="navbar-nav mr-auto">
 		<li class="nav-item">
