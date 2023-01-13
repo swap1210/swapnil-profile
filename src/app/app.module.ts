@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompressedMatModule } from './compressed-mat/compressed-mat.module';
 import { GooglyEyeComponent } from './fun/googly-eye/googly-eye.component';
 import { ImpDialogComponent } from './app/imp-dialog/imp-dialog.component';
+import { SkillGridComponent } from './skill-comp/skill-grid/skill-grid.component';
+import { SkillCardComponent } from './skill-comp/skill-grid/skill-card/skill-card.component';
+import { FooterCardComponent } from './app/footer/footer-card/footer-card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ImpDialogComponent } from './app/imp-dialog/imp-dialog.component';
     HeaderComponent,
     GooglyEyeComponent,
     ImpDialogComponent,
+    SkillGridComponent,
+    SkillCardComponent,
+    FooterCardComponent,
   ],
   imports: [
     BrowserModule,

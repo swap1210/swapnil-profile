@@ -1,25 +1,27 @@
 //service to fetch some common details from server to once login/anonymous login is complete
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, scan, startWith, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
+import { FooterModel } from '../models/footer';
+import { Skill } from '../models/skill';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
-  public header$: BehaviorSubject<any>;
-  public body$: BehaviorSubject<any>;
+  public header$: BehaviorSubject<any> = new BehaviorSubject<any>({});
+  public body$: BehaviorSubject<any> = new BehaviorSubject<any>({});
+  public footer$: BehaviorSubject<any> = new BehaviorSubject<FooterModel[]>([]);
+  public skills$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+
   public darkThemeState$: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   constructor(
     private afs: AngularFirestore, // Inject Firestore service
     private auth: AuthService
   ) {
-    this.header$ = new BehaviorSubject<any>({});
-    this.body$ = new BehaviorSubject<any>({});
-
     //refresh data everytime the user status changes
     this.auth.user$.subscribe({
       next: (ur) => {
@@ -34,31 +36,68 @@ export class CommonService {
 
   initBasicInfo = () => {
     this.header$.next(this.basicInfoObj.header);
-    this.body$.next(this.basicInfoObj.footer);
-    // let self = this;
-    // this.afs
-    //   .doc<any>(`common/basic-info`)
-    //   .get()
-    //   .subscribe({
-    //     next: (val) => {
-    //       console.log('comm basic', val.data());
-    //       self.header$.next(val.data().header);
-    //       self.body$.next(val.data().body);
-    //     },
-    //     complete: () => {
-    //       console.log('Done looking for common data');
-    //     },
-    //   });
+    this.footer$.next(this.basicInfoObj.footer);
+    let self = this;
+    this.afs
+      .doc<any>(`common/basic-info`)
+      .get()
+      .subscribe({
+        next: (val) => {
+          console.log('comm basic', val.data());
+          // self.header$.next(val.data().header);
+          // self.body$.next(val.data().body);
+          this.skills$.next(val.data().skills as Skill[]);
+        },
+        complete: () => {
+          console.log('Done looking for common data');
+        },
+      });
   };
 
-  toggleTheme = (mode: boolean) => {
-    this.darkThemeState$.next(mode);
-  };
+  skillsObj: Skill[] = [
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fgopher.svg?alt=media&token=7b546ab4-4bd0-4b8b-9c83-38e930889b65',
+      proficiency: 80,
+      title: 'Golang',
+      period: '2020 - Present',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fangular.svg?alt=media&token=87dd488f-ebdc-4a49-8503-88615e38ce60',
+      proficiency: 85,
+      title: 'Angular',
+      period: '2017 - Present',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
+      proficiency: 90,
+      title: 'Java',
+      period: '2011 - Present',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
+      proficiency: 90,
+      title: 'Java',
+      period: '2011 - Present',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
+      proficiency: 90,
+      title: 'Java',
+      period: '2011 - Present',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
+      proficiency: 90,
+      title: 'Java',
+      period: '2011 - Present',
+    },
+  ];
 
   basicInfoObj = {
     header: {
       appIconLink: 'https://avatars.githubusercontent.com/u/16183749?v=4',
       appName: 'Swapnil Patel',
+      authorName: 'Swapnil Patel',
       github: {
         logo: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z',
         link: 'https://github.com/swap1210',
@@ -104,20 +143,20 @@ export class CommonService {
       },
     },
     footer: [
-      {
-        icon: 'https://avatars.githubusercontent.com/u/16183749?v=4',
-        title: 'Terms and Condition',
-        link: 'tnc',
-      },
+      // {
+      //   icon: 'https://avatars.githubusercontent.com/u/16183749?v=4',
+      //   title: 'Terms and Condition',
+      //   link: 'tnc',
+      // },
+      // {
+      //   icon: 'phone',
+      //   title: 'Contact',
+      //   link: 'mail',
+      // },
       {
         link: 'about-us',
-        title: 'About us',
-        icon: 'https://avatars.githubusercontent.com/u/16183749?v=4',
-      },
-      {
-        icon: 'https://avatars.githubusercontent.com/u/16183749?v=4',
-        title: 'Contact',
-        link: 'contact',
+        title: 'Developed by: Swapnil Patel 🙂',
+        icon: 'face',
       },
     ],
   };

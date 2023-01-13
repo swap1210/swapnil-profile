@@ -1,0 +1,20 @@
+<mat-card class="mat-elevation-z2">
+  <mat-card-header>
+    <div mat-card-avatar class="logo"><img #curLogoImg [src]="sm.logo" /></div>
+    <mat-card-title class="mat-h1" [innerText]="sm.title"></mat-card-title>
+    <mat-card-subtitle [innerText]="sm.period || ''"></mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  /> -->
+  <mat-card-content>
+    <div class="mat-h3" [innerText]="sm.proficiency + '%'"></div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-mini-fab color="primary">
+      <mat-icon>open_in_full</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

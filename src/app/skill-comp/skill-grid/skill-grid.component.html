@@ -1,0 +1,6 @@
+<div class="skill-grid above">
+  <app-skill-card
+    *ngFor="let skill of cs.skills$ | async"
+    [sm]="skill"
+  ></app-skill-card>
+</div>

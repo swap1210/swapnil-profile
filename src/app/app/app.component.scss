@@ -11,6 +11,7 @@ header {
 
 .left-side {
   grid-column: 1 / 2;
+  color: #e5e5e5;
 }
 
 main {
@@ -19,15 +20,15 @@ main {
 
 .right-side {
   grid-column: 3 / 4;
-}
-
-header {
-  margin: -1em;
+  color: #e5e5e5;
 }
 
 footer {
   grid-column: 1 / 4;
 }
 .section {
-  padding: 0.5rem;
+  padding: 0rem;
+}
+.standard-Pad {
+  padding: 2em 1em;
 }
