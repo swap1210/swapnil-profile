@@ -23,3 +23,13 @@ export const Util = {
     },
   },
 };
+export const Theme = {
+  light: {
+    primary: '#5cdb95',
+    primary_contrast: '#05386b',
+  },
+  dark: {
+    primary: '#0b0c10',
+    primary_contrast: '#66fcf1',
+  },
+};

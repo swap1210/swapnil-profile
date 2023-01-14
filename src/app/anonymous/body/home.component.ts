@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { Welcome } from '../models/welcome';
-import { AuthService } from '../services/auth.service';
-import { CommonService } from '../services/common.service';
-import { Util } from '../services/Util';
+import { Util } from 'src/app/services/Util';
+import { Welcome } from 'src/app/models/welcome';
+import { AuthService } from 'src/app/services/auth.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   };
   WelcomeMessageViewed = false;
   destroy$: Subject<boolean> = new Subject<boolean>();
+
   constructor(public auth: AuthService, public comm: CommonService) {}
 
   ngOnDestroy(): void {

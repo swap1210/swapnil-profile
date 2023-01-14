@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { NotFoundComponent } from './error/not-found/not-found.component';
-import { AuthGuard } from './app-routing.guard';
-import { LoginComponent } from './login/login.component';
-import { Role } from './models/role';
-import { CommonService } from './services/common.service';
+import { HomeComponent } from './body/home.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { NotFoundComponent } from '../error/not-found/not-found.component';
+import { LoginComponent } from '../login/login.component';
+import { Role } from '../models/role';
+import { CommonService } from '../services/common.service';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
@@ -14,6 +13,7 @@ import {
 } from '@angular/fire/compat/auth-guard';
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthGuard } from './anonymous-routing.guard';
 
 const adminOnly: AuthPipe = map((user) => {
   if (user && user.uid) {
@@ -55,7 +55,7 @@ const routes: Routes = [
       roles: [Role.Admin],
     },
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('../admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: '**',

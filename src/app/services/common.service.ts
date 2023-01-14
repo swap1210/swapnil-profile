@@ -155,7 +155,7 @@ export class CommonService {
       // },
       {
         link: 'about-us',
-        title: 'Developed by: Swapnil Patel 🙂',
+        title: 'Developed by <u>Swapnil Patel</u> 🙂',
         icon: 'face',
       },
     ],

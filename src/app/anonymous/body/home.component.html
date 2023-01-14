@@ -1,0 +1,8 @@
+<div role="alert">
+  <h1 class="mat-display-4">Welcome!</h1>
+  <div *ngIf="comm.skills$ | async as skillsObj">
+    <app-googly-eye [ngClass]="{ transparent: skillsObj.length < 2 }"
+      ><app-skill-grid [skills]="skillsObj"></app-skill-grid
+    ></app-googly-eye>
+  </div>
+</div>

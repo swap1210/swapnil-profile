@@ -10,7 +10,27 @@
     alt="Photo of a Shiba Inu"
   /> -->
   <mat-card-content>
-    <div class="mat-h3" [innerText]="sm.proficiency + '%'"></div>
+    <div class="super-center">
+      <circle-progress
+        [percent]="sm.proficiency"
+        [radius]="30"
+        [outerStrokeWidth]="8"
+        [innerStrokeWidth]="0"
+        [outerStrokeColor]="
+          (cm.darkThemeState$ | async)
+            ? theme.dark.primary_contrast
+            : theme.light.primary_contrast
+        "
+        [innerStrokeColor]="
+          (cm.darkThemeState$ | async)
+            ? theme.dark.primary
+            : theme.light.primary
+        "
+        [animation]="true"
+        [animationDuration]="500"
+        [title]="sm.proficiency + '%'"
+      ></circle-progress>
+    </div>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-mini-fab color="primary">
