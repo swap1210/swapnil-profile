@@ -25,7 +25,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ExperienceComponent } from './anonymous/body/experience/experience.component';
 import { AppRoutingModule } from './anonymous/anonymous-routing.module';
 import { HomeComponent } from './anonymous/body/home.component';
-import { GooglyEyeComponent } from './fun/googly-eye/googly-eye.component';
+import { GooglyEyeComponent } from './anonymous/fun/googly-eye/googly-eye.component';
+import { ExperienceCardComponent } from './anonymous/body/experience/experience-card/experience-card.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +39,13 @@ import { GooglyEyeComponent } from './fun/googly-eye/googly-eye.component';
     UserRoleDirective,
     FooterComponent,
     HeaderComponent,
-    GooglyEyeComponent,
     ImpDialogComponent,
     SkillGridComponent,
     SkillCardComponent,
     FooterCardComponent,
     ExperienceComponent,
+    GooglyEyeComponent,
+    ExperienceCardComponent,
   ],
   imports: [
     BrowserModule,

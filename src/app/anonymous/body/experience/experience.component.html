@@ -1,1 +1,17 @@
-<p>experience works!</p>
+<div class="mat-typography" color="primary">
+  <mat-tab-group
+    mat-stretch-tabs="true"
+    mat-align-tabs="start"
+    animationDuration="500ms"
+  >
+    <mat-tab *ngFor="let exp of experiences">
+      <ng-template mat-tab-label
+        ><div class="split">
+          <img class="tab-logo" [src]="exp.logo" />
+          <span [innerText]="exp.organization"></span>
+        </div>
+      </ng-template>
+      <app-experience-card [experience]="exp"></app-experience-card
+    ></mat-tab>
+  </mat-tab-group>
+</div>

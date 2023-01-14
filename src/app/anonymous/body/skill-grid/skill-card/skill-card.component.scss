@@ -1,4 +1,19 @@
 .logo {
-  height: minmax(2em, 2em);
-  width: minmax(2em, 4em);
+  width: 2em;
 }
+.spacer {
+  flex: auto;
+}
+p {
+  font-weight: 600;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .no-mobile {
+    display: none;
+  }
+}
+// .no-mobile {
+//   display: block;
+// }

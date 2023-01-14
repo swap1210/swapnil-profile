@@ -28,4 +28,8 @@ img {
 .super-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.sub-font {
+  text-align: -webkit-center;
 }

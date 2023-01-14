@@ -1,15 +1,15 @@
-<mat-card class="mat-elevation-z2">
-  <mat-card-header>
-    <div mat-card-avatar class="logo"><img #curLogoImg [src]="sm.logo" /></div>
-    <mat-card-title class="mat-h1" [innerText]="sm.title"></mat-card-title>
-    <mat-card-subtitle [innerText]="sm.period || ''"></mat-card-subtitle>
-  </mat-card-header>
-  <!-- <img
-    mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
-  /> -->
-  <mat-card-content>
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div class="logo">
+          <img #curLogoImg [src]="sm.logo" />
+        </div>
+        <div class="no-mobile spacer"></div>
+        <p class="no-mobile spacer" [innerText]="sm.title"></p>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
     <div class="super-center">
       <circle-progress
         [percent]="sm.proficiency"
@@ -30,11 +30,7 @@
         [animationDuration]="500"
         [title]="sm.proficiency + '%'"
       ></circle-progress>
+      <div class="sub-font mat-subtitle-1" [innerText]="sm.period || ''"></div>
     </div>
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-mini-fab color="primary">
-      <mat-icon>open_in_full</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

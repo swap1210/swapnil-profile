@@ -1,8 +1,24 @@
-<div role="alert">
-  <h1 class="mat-display-4">Welcome!</h1>
-  <div *ngIf="comm.skills$ | async as skillsObj">
+<div class="split-horiz">
+  <span class="mat-display-2">Greetings!</span>
+  <a
+    mat-button
+    href="https://github.com/swap1210/swapnil-profile"
+    target="_blank"
+    class="mat-display-2"
+    matTooltip="This site is open source!"
+    >&lt;/&gt;</a
+  >
+</div>
+
+<div class="split">
+  <div class="mat-display-1">Languages:</div>
+  <div class="mat-display-1">Experiences:</div>
+  <div *ngIf="comm.skills$ | async as skillsObj" style="flex: 1">
     <app-googly-eye [ngClass]="{ transparent: skillsObj.length < 2 }"
       ><app-skill-grid [skills]="skillsObj"></app-skill-grid
     ></app-googly-eye>
+  </div>
+  <div *ngIf="comm.experiences$ | async as experiencesObj" style="flex: 2">
+    <app-experience [experiences]="experiencesObj"></app-experience>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonService } from './services/common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ImpDialogComponent } from './imp-dialog/imp-dialog.component';
