@@ -7,6 +7,7 @@ import { ImpDialogComponent } from './imp-dialog/imp-dialog.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   darkMode = false;

@@ -2,7 +2,6 @@ html,
 body {
   margin: 0em;
   height: 100vh;
-  background-color: #e5e5e5;
   display: grid;
 }
 .page-banner {
@@ -29,7 +28,14 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .sub-font {
   text-align: -webkit-center;
+}
+
+@media screen and (max-width: 600px) {
+  .no-mobile {
+    display: none;
+  }
 }

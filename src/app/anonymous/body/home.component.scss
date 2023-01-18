@@ -5,7 +5,9 @@
   display: grid;
   gap: 1em;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr auto;
+
+  animation: fadeIn 5000s;
+  // grid-template-rows: 1fr auto;
 }
 .split-horiz {
   display: flex;

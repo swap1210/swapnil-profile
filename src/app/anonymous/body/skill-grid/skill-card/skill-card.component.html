@@ -11,25 +11,6 @@
     </mat-expansion-panel-header>
 
     <div class="super-center">
-      <circle-progress
-        [percent]="sm.proficiency"
-        [radius]="30"
-        [outerStrokeWidth]="8"
-        [innerStrokeWidth]="0"
-        [outerStrokeColor]="
-          (cm.darkThemeState$ | async)
-            ? theme.dark.primary_contrast
-            : theme.light.primary_contrast
-        "
-        [innerStrokeColor]="
-          (cm.darkThemeState$ | async)
-            ? theme.dark.primary
-            : theme.light.primary
-        "
-        [animation]="true"
-        [animationDuration]="500"
-        [title]="sm.proficiency + '%'"
-      ></circle-progress>
       <div class="sub-font mat-subtitle-1" [innerText]="sm.period || ''"></div>
     </div>
   </mat-expansion-panel>

@@ -1,5 +1,5 @@
 $card-width: 12em;
-$card-height: 6em;
+// $card-height: 6em;
 
 .skill-grid {
   display: grid;
@@ -23,7 +23,7 @@ $card-height: 6em;
 
 @media screen and (max-width: 600px) {
   .skill-grid {
-    grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
   }
 }
 

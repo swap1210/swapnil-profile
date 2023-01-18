@@ -42,7 +42,7 @@ export class CommonService {
   initBasicInfo = () => {
     this.header$.next(this.basicInfoObj.header);
     this.footer$.next(this.basicInfoObj.footer);
-    if (true || environment.production) {
+    if (environment.production) {
       let self = this;
       this.afs
         .doc<any>(`common/basic-info`)
@@ -69,14 +69,12 @@ export class CommonService {
   readonly skillsObj: Skill[] = [
     {
       title: 'Golang',
-      proficiency: 80,
       period: '2020 - Present',
       sequence: 1,
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fgopher.svg?alt=media&token=7b546ab4-4bd0-4b8b-9c83-38e930889b65',
     },
     {
       title: 'Angular',
-      proficiency: 85,
       sequence: 0,
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fangular.svg?alt=media&token=87dd488f-ebdc-4a49-8503-88615e38ce60',
       period: '2019 - Present',
@@ -84,13 +82,12 @@ export class CommonService {
     {
       period: '2011 - Present',
       title: 'Java',
-      proficiency: 90,
       sequence: 3,
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
     },
     {
       title: 'Typescript',
-      proficiency: 75,
+
       sequence: 4,
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fts-logo-256.svg?alt=media&token=d07ed332-8a2e-4858-b316-cbe43474cd5b',
     },
@@ -98,29 +95,27 @@ export class CommonService {
       sequence: 5,
       title: 'JavaScript',
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FUnofficial_JavaScript_logo_2.svg?alt=media&token=01ed2030-1407-4fa6-af92-5eb690b426b9',
-      proficiency: 80,
     },
     {
       title: 'PL/SQL',
       sequence: 6,
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FAppDev_plsql_detailed.svg?alt=media&token=4d70f361-c194-4779-9a87-9fabc7be2c87',
-      proficiency: 90,
     },
     {
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogo_dart_192px.svg?alt=media&token=a18d5a56-75a9-487e-94e6-c0a47a9d3323',
-      proficiency: 75,
+
       title: 'Dart',
       sequence: 7,
     },
     {
       title: 'Node.js',
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FNode.js_logo.svg?alt=media&token=0c99a016-a250-4dd8-883c-203c371a6704',
-      proficiency: 80,
+
       sequence: 10,
     },
     {
       sequence: 9,
-      proficiency: 55,
+
       title: 'Swift',
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fswift-64x64.png?alt=media&token=41fa278f-ff5e-4c8f-ad54-9e81bca8f165',
     },

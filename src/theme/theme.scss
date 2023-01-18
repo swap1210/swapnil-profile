@@ -24,6 +24,7 @@ $profile-dark-theme: mat.define-dark-theme(
 @include mat.all-component-themes($profile-app);
 .darkMode {
   @include mat.all-component-colors($profile-dark-theme);
+  // color: red;
 }
 // @include mat.button-theme($profile-app);
 // @include mat.toolbar-theme($profile-app);

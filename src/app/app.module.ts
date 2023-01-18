@@ -21,12 +21,12 @@ import { SkillGridComponent } from './anonymous/body/skill-grid/skill-grid.compo
 import { SkillCardComponent } from './anonymous/body/skill-grid/skill-card/skill-card.component';
 import { FooterCardComponent } from './anonymous/footer/footer-card/footer-card.component';
 
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ExperienceComponent } from './anonymous/body/experience/experience.component';
 import { AppRoutingModule } from './anonymous/anonymous-routing.module';
 import { HomeComponent } from './anonymous/body/home.component';
 import { GooglyEyeComponent } from './anonymous/fun/googly-eye/googly-eye.component';
 import { ExperienceCardComponent } from './anonymous/body/experience/experience-card/experience-card.component';
+import { ProjectsComponent } from './anonymous/body/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { ExperienceCardComponent } from './anonymous/body/experience/experience-
     ExperienceComponent,
     GooglyEyeComponent,
     ExperienceCardComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,17 +54,6 @@ import { ExperienceCardComponent } from './anonymous/body/experience/experience-
     AngularFireModule.initializeApp(environment.firebase as FirebaseOptions),
     BrowserAnimationsModule,
     CompressedMatModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: '#78C000',
-      innerStrokeColor: '#C7E596',
-      animationDuration: 300,
-      showSubtitle: false,
-      showUnits: false,
-    }),
   ],
   exports: [UserDirective, UserRoleDirective],
   providers: [AuthService, CommonModule],
