@@ -1,4 +1,4 @@
-<div class="split-horiz">
+<div class="home-split-horiz">
   <span class="mat-display-2">Greetings!</span>
   <a
     mat-button
@@ -10,16 +10,24 @@
   >
 </div>
 
-<div class="split">
-  <div class="mat-display-1">Languages:</div>
-  <div class="mat-display-1">Experiences:</div>
+<div class="home-split">
   <div *ngIf="comm.skills$ | async as skillsObj" style="flex: 1">
     <app-googly-eye [ngClass]="{ transparent: skillsObj.length < 2 }"
-      ><app-skill-grid [skills]="skillsObj"></app-skill-grid
+      ><app-skill-grid
+        [themeState]="comm.darkThemeState$ | async"
+        [titleLabel]="'Languages: '"
+        [skills]="skillsObj"
+      ></app-skill-grid
     ></app-googly-eye>
   </div>
   <div *ngIf="comm.experiences$ | async as experiencesObj" style="flex: 2">
     <app-experience [experiences]="experiencesObj"></app-experience>
+  </div>
+  <div *ngIf="comm.frameworks$ | async as frameworksObj" class="">
+    <app-skill-grid
+      [titleLabel]="'Framework: '"
+      [skills]="frameworksObj"
+    ></app-skill-grid>
   </div>
   <div class="">
     <app-projects></app-projects>

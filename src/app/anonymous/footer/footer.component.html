@@ -1,8 +1,8 @@
 <div
   [ngClass]="{
     recShape: true,
-    night: (this.cs.darkThemeState$ | async),
-    day: !(this.cs.darkThemeState$ | async)
+    night: (cs.darkThemeState$ | async),
+    day: !(cs.darkThemeState$ | async)
   }"
 >
   <app-footer-card

@@ -1,3 +1,16 @@
-<div class="skill-grid above">
-  <app-skill-card *ngFor="let skill of skills" [sm]="skill"></app-skill-card>
+<div class="split">
+  <div
+    [ngClass]="{
+      recShape: true,
+      night: themeState,
+      day: !themeState
+    }"
+    class="legendry half mat-elevation-z2"
+  >
+    <div class="zero-margin mat-h2" [innerText]="titleLabel"></div>
+  </div>
+
+  <div class="skill-grid above five">
+    <app-skill-card *ngFor="let skill of skills" [sm]="skill"></app-skill-card>
+  </div>
 </div>

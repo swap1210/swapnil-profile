@@ -9,6 +9,10 @@ import { CommonService } from '../../../services/common.service';
 })
 export class SkillGridComponent implements OnInit {
   @Input()
+  themeState: boolean | null = false;
+  @Input()
+  titleLabel!: string;
+  @Input()
   skills!: Skill[];
   constructor() {}
 

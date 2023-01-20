@@ -1,3 +1,16 @@
+@use "@angular/material" as mat;
+@import "vars.scss";
+
+.day {
+  background-color: mat.get-color-from-palette($profile-ang-primary, 500);
+  color: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
+}
+
+.night {
+  background-color: mat.get-color-from-palette($profile-ang-dark-primary, 500);
+  color: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
+}
+
 html,
 body {
   margin: 0em;
@@ -38,4 +51,42 @@ img {
   .no-mobile {
     display: none;
   }
+}
+
+// .split {
+//   display: grid;
+//   gap: 1em;
+//   grid-template-columns: 1fr 2fr;
+
+//   animation: fadeIn 5000s;
+//   // grid-template-rows: 1fr auto;
+// }
+// .split-horiz {
+//   display: flex;
+//   justify-content: space-between;
+// }
+.half {
+  flex: 0.5;
+}
+.one {
+  flex: 1;
+}
+.two {
+  flex: 2;
+}
+.three {
+  flex: 3;
+}
+.four {
+  flex: 4;
+}
+.five {
+  flex: 5;
+}
+.six {
+  flex: 6;
+}
+
+.zero-margin {
+  margin: 0 !important;
 }

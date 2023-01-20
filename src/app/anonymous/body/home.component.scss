@@ -1,15 +1,12 @@
 .transparent {
   opacity: 0;
 }
-.split {
+.home-split {
   display: grid;
   gap: 1em;
   grid-template-columns: 1fr 2fr;
-
-  animation: fadeIn 5000s;
-  // grid-template-rows: 1fr auto;
 }
-.split-horiz {
+.home-split-horiz {
   display: flex;
   justify-content: space-between;
 }

@@ -17,6 +17,9 @@ export class CommonService {
   public body$: BehaviorSubject<any> = new BehaviorSubject<any>({});
   public footer$: BehaviorSubject<any> = new BehaviorSubject<FooterModel[]>([]);
   public skills$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+  public frameworks$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>(
+    []
+  );
   public experiences$: BehaviorSubject<Experience[]> = new BehaviorSubject<
     Experience[]
   >([]);
@@ -50,10 +53,11 @@ export class CommonService {
         .subscribe({
           next: (val) => {
             console.log('comm basic', JSON.stringify(val.data()));
-            const { skills, experiences } = val.data();
+            const { skills, experiences, frameworks } = val.data();
             // self.header$.next(val.data().header);
             // self.body$.next(val.data().body);
             this.skills$.next(skills as Skill[]);
+            this.frameworks$.next(frameworks as Skill[]);
             this.experiences$.next(experiences as Experience[]);
           },
           complete: () => {
@@ -63,70 +67,88 @@ export class CommonService {
     } else {
       this.skills$.next(this.skillsObj);
       this.experiences$.next(this.experiencesObj);
+      this.frameworks$.next(this.frameworkObj);
     }
   };
 
   readonly skillsObj: Skill[] = [
     {
-      title: 'Golang',
       period: '2020 - Present',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fgo-logo-blue.svg?alt=media&token=c45c5a78-0a7c-43d3-8f95-54d98f9cf7c1',
+      title: 'Golang',
       sequence: 1,
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fgopher.svg?alt=media&token=7b546ab4-4bd0-4b8b-9c83-38e930889b65',
-    },
-    {
-      title: 'Angular',
-      sequence: 0,
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fangular.svg?alt=media&token=87dd488f-ebdc-4a49-8503-88615e38ce60',
-      period: '2019 - Present',
     },
     {
       period: '2011 - Present',
-      title: 'Java',
       sequence: 3,
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fjava.svg?alt=media&token=bea46269-6317-4f6c-bc32-d54fe5de7a3f',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fjava.svg?alt=media&token=2012223f-7a8c-46f4-905a-588696269f9f',
+      title: 'Java',
     },
     {
       title: 'Typescript',
-
       sequence: 4,
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fts-logo-256.svg?alt=media&token=d07ed332-8a2e-4858-b316-cbe43474cd5b',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fts-logo-256.svg?alt=media&token=66980c03-e8a9-4187-89fc-d517aaf3a473',
     },
     {
-      sequence: 5,
       title: 'JavaScript',
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FUnofficial_JavaScript_logo_2.svg?alt=media&token=01ed2030-1407-4fa6-af92-5eb690b426b9',
+      sequence: 5,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FUnofficial_JavaScript_logo_2.svg?alt=media&token=9a507834-828a-4467-98a6-1899d07e4de1',
     },
     {
       title: 'PL/SQL',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FAppDev_plsql_detailed.svg?alt=media&token=ae6121d9-1622-46e1-a45b-eedbecd0897c',
       sequence: 6,
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FAppDev_plsql_detailed.svg?alt=media&token=4d70f361-c194-4779-9a87-9fabc7be2c87',
     },
     {
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogo_dart_192px.svg?alt=media&token=a18d5a56-75a9-487e-94e6-c0a47a9d3323',
-
-      title: 'Dart',
       sequence: 7,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Flogo_dart_192px.svg?alt=media&token=4b4fac3d-ac79-4477-b9d1-2105a2c041e1',
+      title: 'Dart',
     },
     {
-      title: 'Node.js',
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2FNode.js_logo.svg?alt=media&token=0c99a016-a250-4dd8-883c-203c371a6704',
-
       sequence: 10,
+      title: 'Node.js',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FNode.js_logo.svg?alt=media&token=9ed00a7c-098a-48c6-87de-fa77f187a142',
     },
     {
       sequence: 9,
-
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fswift-64x64.png?alt=media&token=256f3c21-4f06-4614-acd3-0b3011c482dc',
       title: 'Swift',
-      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fswift-64x64.png?alt=media&token=41fa278f-ff5e-4c8f-ad54-9e81bca8f165',
     },
   ];
 
+  readonly frameworkObj: Skill[] = [
+    {
+      period: '2019 - Present',
+      sequence: 0,
+      title: 'Angular',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fangular.svg?alt=media&token=15cb0b47-2778-4e5c-be3b-94279585dc95',
+    },
+    {
+      period: '2019 - Present',
+      sequence: 1,
+      title: 'ExpressJS',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fangular.svg?alt=media&token=15cb0b47-2778-4e5c-be3b-94279585dc95',
+    },
+    {
+      period: '2019 - Present',
+      sequence: 2,
+      title: 'Flutter',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fangular.svg?alt=media&token=15cb0b47-2778-4e5c-be3b-94279585dc95',
+    },
+    {
+      period: '2015 - Present',
+      sequence: 3,
+      title: 'Android',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fangular.svg?alt=media&token=15cb0b47-2778-4e5c-be3b-94279585dc95',
+    },
+  ];
   readonly experiencesObj: Experience[] = [
     {
-      sequence: 0,
       organization: 'Deloitte',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/DeloitteNewSmall.png',
+      period: 'March 2020 – August 2021',
+      sequence: 0,
       title: 'Consultant at Deloitte USI, Bangalore India',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FDeloitteNewSmall.png?alt=media&token=47132bc8-b695-4edb-9b6e-2a90cfd1faae',
       tasks: [
         'Developed 10 Oracle BI reports and 5 Conversions with fluid requirements within 3 sprints by designing and using reusable templates',
         'Improved performance and turnaround time of known slow conversions by up to 15% using explain plan, Oracle hints, and creating indexes',
@@ -139,10 +161,7 @@ export class CommonService {
       ],
     },
     {
-      logo: 'https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-1/236971808_10158372672950872_4979305009853044955_n.jpg?stp=dst-jpg_p320x320&_nc_cat=102&ccb=1-7&_nc_sid=1eb0c7&_nc_ohc=Gd1niAfmo1YAX9oEW8u&_nc_ht=scontent-hou1-1.xx&oh=00_AfArarlJ-gFzroo5LxZ7Q9tk3uFuAOyTbFhC6CEyrmh7Rw&oe=63C7B3C6',
-      organization: 'Accenture',
-      sequence: 1,
-      title: 'Analyst at Accenture Solutions Private Limited, Bangalore India',
+      title: 'Accenture Solutions Private Limited',
       tasks: [
         'Developed 12 conversion, reports, and extension components for the fluent transition of clients while ensuring data quality and consistency.',
         'Developed lightweight REST APIs using Node.js to securely sync end-of-business records from 3rd party vendors to Oracle 11g with reporting.',
@@ -151,24 +170,36 @@ export class CommonService {
         'Provided excellent customer service during support roles to pen down client requirements into the service tool during the planning phase.',
         'Helped transitioned the deployment from agile to CI/CD by switching from Jenkins to GitHub workflow completed with testing sequence.',
       ],
+      organization: 'Accenture',
+      period: 'September 2016 - March 2020',
+      sequence: 1,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Faccenture.jpeg?alt=media&token=b59040e6-7cf2-45b5-9edc-1337ed5f2313',
     },
     {
-      logo: 'https://www.uhcl.edu/marketing-communications/brand-guide/documents/uhcl-acronym-logo/uhcl-acronym-4-color.png',
-      organization: 'UHCL',
-      sequence: 2,
-      title: 'Teaching Assistant at University of Houston at Clearlake',
       tasks: [
-        'Helped to improve grades of students by up to 30% by conducting extra classes and labs with a focus on low-performing students',
+        'Helped to improve grades of students by up to 30% by conducting extra classes and labs with an additional focus on low-performing students.',
         'Curated quizzes and assignments as per the latest programming trends to enhance the existing syllabus with the help of Professors.',
-        'Handled multiple classes under different professors and assessed all the assignments with high accuracy within deadlines.',
+        'Managed multiple classes under different Professors and assessed all the assignments with high accuracy within deadlines and grade reporting.',
+        'Responsible for grading final projects of graduate students, including design document review, presentations, live demos, and code assessment.',
       ],
+      sequence: 2,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fuhcl-acronym-4-color.png?alt=media&token=7d57eaa6-7349-4a32-b0a7-0d9af92597d4',
+      title: 'Teaching Assistant at University of Houston at Clearlake',
+      organization: 'UHCL',
     },
     {
-      logo: 'https://www.uhcl.edu/marketing-communications/brand-guide/documents/uhcl-acronym-logo/uhcl-acronym-4-color.png',
-      organization: 'UHCL',
+      tasks: [
+        'Provided excellent customer service, support, and general information to students, parents, faculty, staff, and visitors, virtually and in person.',
+        'Provided referrals to university support services and community resources.',
+        'Created and facilitate special projects, in-person and virtual advocacy marketing campaigns, events, training, and workshops.',
+        'Created social media content and manage digital content across multiple platforms (web, database, social media, email, etc.).',
+        'Assisted in the general management and duties of Advocacy Programs (Emergency Assistance Resources, Food Access Programs/Distributions, Former Foster Youth Support Services, etc. ).',
+        'Analysed data and produce reports. Clerical and front desk duties.',
+      ],
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2Fuhcl-acronym-4-color.png?alt=media&token=7d57eaa6-7349-4a32-b0a7-0d9af92597d4',
       sequence: 3,
       title: 'Student Tech II at University of Houston at Clearlake',
-      tasks: [],
+      organization: 'UHCL',
     },
   ];
   basicInfoObj = {
