@@ -1,4 +1,17 @@
 <div class="mat-typography" color="primary">
+  <div
+    [ngClass]="{
+      'mat-elevation-z2': true,
+      'mat-border': true,
+      recShape: true,
+      night: themeState,
+      day: !themeState
+    }"
+    style="margin-top: 4.3em"
+    class="legendry half mat-elevation-z2"
+  >
+    <div class="zero-margin mat-h2">My Experiences:</div>
+  </div>
   <mat-tab-group
     mat-stretch-tabs="true"
     mat-align-tabs="start"

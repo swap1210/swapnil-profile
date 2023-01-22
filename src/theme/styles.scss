@@ -90,3 +90,30 @@ img {
 .zero-margin {
   margin: 0 !important;
 }
+
+.card-tall-2 {
+  grid-row: span 2 / auto;
+}
+
+.card-tall-4 {
+  grid-row: span 4 / auto;
+}
+.card-tall-7 {
+  grid-row: span 7 / auto;
+}
+
+.card-wide-2 {
+  grid-column: span 2 / auto;
+}
+
+.v-margin {
+  margin: 1em 0px;
+}
+.mat-border {
+  border-radius: 4px;
+}
+
+.legendry {
+  padding: 0.5em 1em;
+  z-index: 1;
+}

@@ -20,6 +20,22 @@ export class CommonService {
   public frameworks$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>(
     []
   );
+  public webDevelopments$: BehaviorSubject<Skill[]> = new BehaviorSubject<
+    Skill[]
+  >([]);
+  public databases$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>(
+    []
+  );
+  public operatingSystems$: BehaviorSubject<Skill[]> = new BehaviorSubject<
+    Skill[]
+  >([]);
+  public others$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+  public tools$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+  public applicationServers$: BehaviorSubject<Skill[]> = new BehaviorSubject<
+    Skill[]
+  >([]);
+  public concepts$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
+
   public experiences$: BehaviorSubject<Experience[]> = new BehaviorSubject<
     Experience[]
   >([]);
@@ -52,12 +68,30 @@ export class CommonService {
         .get()
         .subscribe({
           next: (val) => {
-            console.log('comm basic', JSON.stringify(val.data()));
-            const { skills, experiences, frameworks } = val.data();
+            const {
+              skills,
+              experiences,
+              frameworks,
+              webDevelopments,
+              databases,
+              concepts,
+              applicationServers,
+              tools,
+              others,
+              operatingSystems,
+            } = val.data();
             // self.header$.next(val.data().header);
             // self.body$.next(val.data().body);
             this.skills$.next(skills as Skill[]);
             this.frameworks$.next(frameworks as Skill[]);
+            this.webDevelopments$.next(webDevelopments as Skill[]);
+            this.databases$.next(databases as Skill[]);
+            this.applicationServers$.next(applicationServers as Skill[]);
+            this.concepts$.next(concepts as Skill[]);
+            this.tools$.next(tools as Skill[]);
+            this.others$.next(others as Skill[]);
+            this.operatingSystems$.next(operatingSystems as Skill[]);
+
             this.experiences$.next(experiences as Experience[]);
           },
           complete: () => {
@@ -68,8 +102,176 @@ export class CommonService {
       this.skills$.next(this.skillsObj);
       this.experiences$.next(this.experiencesObj);
       this.frameworks$.next(this.frameworkObj);
+      this.webDevelopments$.next(this.wdObj);
+      this.databases$.next(this.dbObj);
+      this.applicationServers$.next(this.asObj);
+      this.concepts$.next(this.cObj);
+      this.tools$.next(this.tObj);
+      this.others$.next(this.oObj);
+      this.operatingSystems$.next(this.osObj);
     }
   };
+
+  readonly cObj: Skill[] = [
+    { sequence: 0, logo: '', title: 'Relational Database' },
+    { title: 'Data Structure', sequence: 1, logo: '' },
+    { title: 'Object Oriented Programming', sequence: 2, logo: '' },
+    { logo: '', title: 'Microservices', sequence: 3 },
+    { title: 'MVVM', logo: '', sequence: 4 },
+    { sequence: 5, title: 'MVC', logo: '' },
+  ];
+  readonly tObj: Skill[] = [
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2FVisual_Studio_Code.svg?alt=media&token=e8815585-3c19-44cc-abdc-b4e04407c924',
+      title: 'VS Code',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fpostman.svg?alt=media&token=4a97a77d-a4e6-4ff8-bd6a-ab536d5b6a0a',
+      title: 'Postman',
+    },
+    {
+      title: 'GitHub',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fgithub.svg?alt=media&token=10702338-e506-4b26-a37a-7ace93187bf4',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fgithub_workflow.png?alt=media&token=9a3c76c3-e76a-4b0e-aaca-7a4a5ac730c1',
+      title: 'Workflow',
+    },
+    {
+      title: 'Figma',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2FFigma-logo.svg?alt=media&token=6befe107-e20d-4ee6-961f-b45a87043312',
+    },
+    {
+      title: 'Prettier',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fprettier-logo_small.png?alt=media&token=46f2cc3c-9734-403b-bcdb-f5f3a3e63b91',
+    },
+    {
+      title: 'BI Publisher',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fbip_logo_small.png?alt=media&token=757d26f0-f239-42d6-b096-d1bda22c68a8',
+    },
+    { title: 'WebADI' },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2Fadf_logo_small.png?alt=media&token=5a887f10-f00f-4db8-a36c-dca62b872b6a',
+      title: 'Oracle ADF',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Ftools%2FUIpath.svg?alt=media&token=cb2efe45-0b8b-4238-bc85-055d7b9aa9ce',
+      title: 'UiPath',
+    },
+  ];
+
+  readonly oObj: Skill[] = [
+    { logo: '', title: 'GIMP 2.10' },
+    { logo: '', title: 'Microsoft Office' },
+    { logo: '', title: 'Adobe Photoshop' },
+    { logo: '', title: 'Adobe Lightroom' },
+    { logo: '', title: 'Photography' },
+    { logo: '', title: 'Craft' },
+  ];
+  readonly osObj: Skill[] = [
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fos-logo%2FIcon-Mac.svg?alt=media&token=98a413c8-383c-4e7f-abb7-3f1b0410105c',
+      title: 'MacOS',
+      sequence: 0,
+    },
+    {
+      sequence: 1,
+      title: 'Windows',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fos-logo%2Fmicrosoft-windows-22.svg?alt=media&token=54cf1663-8b74-4ea9-ae98-629e183b8569',
+    },
+    {
+      sequence: 2,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fos-logo%2Flinux-tux-2-logo-svg-vector.svg?alt=media&token=f26e3d15-2e27-4bca-8a96-25a60e3a99bf',
+      title: 'Linux',
+    },
+    {
+      title: 'Android',
+      sequence: 3,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FAndroid_logo_2019_(stacked).svg?alt=media&token=9965cd9e-b439-4d1c-8d8d-f49d0543b058',
+    },
+  ];
+
+  readonly asObj: Skill[] = [
+    {
+      title: 'Google Firebase',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fserver%2Ffirebase.svg?alt=media&token=0658a939-1d46-4657-950f-b14ef16a016b',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fserver%2Fmicrosoft-azureicon-seeklogo.com.svg?alt=media&token=f0d43e8a-d581-4946-abcf-355141b55b08',
+      title: 'Azure',
+    },
+    {
+      title: 'Oracle WebLogic',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fserver%2FOracle%20Weblogic.png?alt=media&token=0b77bcd4-1e40-4ead-96fb-a1af35c32916',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fserver%2FApache_Tomcat_logo.svg?alt=media&token=e755d4c4-20db-4c85-adfc-e29501ddb2d5',
+      title: 'Apache Tomcat',
+    },
+  ];
+  readonly dbObj: Skill[] = [
+    {
+      title: 'Oracle 12c',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Foracle_database_12c_logo.png?alt=media&token=ee44dd42-288f-4edc-a862-42da0281c9d0',
+    },
+    {
+      title: 'Oracle 11g',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Foracle_database_11g_logo.png?alt=media&token=a11dce18-f57c-49de-9ee4-91803d83eab4',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Fmysql.png?alt=media&token=c241d589-a7ec-434b-b74d-0b59474ae4f2',
+      title: 'MySQL',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Fnosql%20databases.png?alt=media&token=e53778ae-6c56-4f81-81ef-b5957b4d7342',
+      title: 'NoSQL',
+    },
+    {
+      title: 'Firestore',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Ffirestore.svg?alt=media&token=913a5b6f-ed67-4c87-9819-4e5e87fdd012',
+    },
+    {
+      title: 'Realtime Database',
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Ffire_realtime.png?alt=media&token=566d1a24-9d5b-4414-9312-6953e705cd6d',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fdatabase%2Fmongo-svgrepo-com.svg?alt=media&token=d2cf4e4c-3c28-45a4-b782-f22549912b63',
+      title: 'MongoDB',
+    },
+  ];
+
+  readonly wdObj: Skill[] = [
+    {
+      title: 'HTML/HTML5',
+      sequence: 0,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2FHTML-5-logo-vector-01.svg?alt=media&token=9cde891b-eddb-454c-a53d-186547366fd8',
+    },
+    {
+      title: 'CSS2/CSS3',
+      sequence: 1,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2FCSS-3-logo-vector-01.svg?alt=media&token=4280dd31-2134-450d-9a32-f37a123a03ec',
+    },
+    {
+      sequence: 2,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2FJSON_vector_logo.svg?alt=media&token=52a70dd3-37ce-4c1f-acc7-999e6f63d5b8',
+      title: 'JSON',
+    },
+    {
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2FAJAX-Language-logo-vector-01.svg?alt=media&token=303bfd6b-7132-4a7b-b283-890f1f5d0edb',
+      sequence: 3,
+      title: 'AJAX',
+    },
+    {
+      sequence: 4,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2Fangular-material-logo.svg?alt=media&token=44df54d2-5c82-44c7-8153-8e6b506e5b52',
+      title: 'Material',
+    },
+    {
+      sequence: 5,
+      logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Fweb%2FText-xml.svg?alt=media&token=4b81bd0d-7620-484f-9f10-a02283f0e6b9',
+      title: 'XML',
+    },
+  ];
 
   readonly skillsObj: Skill[] = [
     {

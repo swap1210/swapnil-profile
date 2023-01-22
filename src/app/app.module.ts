@@ -27,6 +27,7 @@ import { HomeComponent } from './anonymous/body/home.component';
 import { GooglyEyeComponent } from './anonymous/fun/googly-eye/googly-eye.component';
 import { ExperienceCardComponent } from './anonymous/body/experience/experience-card/experience-card.component';
 import { ProjectsComponent } from './anonymous/body/projects/projects.component';
+import { ProjectCardComponent } from './anonymous/body/projects/project-card/project-card.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ProjectsComponent } from './anonymous/body/projects/projects.component'
     GooglyEyeComponent,
     ExperienceCardComponent,
     ProjectsComponent,
+    ProjectCardComponent,
   ],
   imports: [
     BrowserModule,

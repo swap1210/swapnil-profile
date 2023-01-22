@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   WelcomeMessageViewed = false;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
+  themeDark: boolean = false;
+
   constructor(public auth: AuthService, public comm: CommonService) {}
 
   ngOnDestroy(): void {
@@ -37,7 +39,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         //once logged in start getting property
       }
     });
-
+    this.comm.darkThemeState$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((val: boolean) => (this.themeDark = val));
     this.comm.body$.pipe(takeUntil(this.destroy$)).subscribe((dat) => {
       if ('welcome' in dat) {
         this.welcome = dat.welcome;
