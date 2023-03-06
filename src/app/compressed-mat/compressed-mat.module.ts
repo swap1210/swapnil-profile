@@ -5,6 +5,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],
@@ -15,6 +18,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatDialogModule,
     MatCardModule,
+    MatExpansionModule,
+    MatTabsModule,
+    MatTooltipModule,
   ],
 })
 export class CompressedMatModule {}

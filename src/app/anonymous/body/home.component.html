@@ -1,0 +1,92 @@
+<div class="home-split-horiz">
+  <span class="mat-display-2">Greetings!</span>
+  <a
+    mat-button
+    href="https://github.com/swap1210/swapnil-profile"
+    target="_blank"
+    class="mat-display-2"
+    matTooltip="This site is open source!"
+    >&lt;/&gt;</a
+  >
+</div>
+
+<div class="home-split">
+  <div *ngIf="comm.skills$ | async as skillsObj" style="flex: 1">
+    <app-googly-eye [ngClass]="{ transparent: skillsObj.length < 2 }"
+      ><app-skill-grid
+        [themeState]="themeDark"
+        [titleLabel]="'Languages: '"
+        [skills]="skillsObj"
+      ></app-skill-grid
+    ></app-googly-eye>
+  </div>
+  <div
+    *ngIf="comm.experiences$ | async as experiencesObj"
+    class="card-tall-2"
+    style="flex: 2"
+  >
+    <app-experience
+      [themeState]="themeDark"
+      [experiences]="experiencesObj"
+    ></app-experience>
+  </div>
+  <div *ngIf="comm.frameworks$ | async as frameworksObj" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Framework: '"
+      [skills]="frameworksObj"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.webDevelopments$ | async as webDevelopments" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Web Development: '"
+      [skills]="webDevelopments"
+    ></app-skill-grid>
+  </div>
+  <div class="card-tall-7">
+    <app-projects></app-projects>
+  </div>
+  <div *ngIf="comm.databases$ | async as databases" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Database: '"
+      [skills]="databases"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.tools$ | async as tools" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Tools: '"
+      [skills]="tools"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.operatingSystems$ | async as operatingSystems" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Operating System: '"
+      [skills]="operatingSystems"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.others$ | async as others" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Others: '"
+      [skills]="others"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.applicationServers$ | async as applicationServers" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Application Servers: '"
+      [skills]="applicationServers"
+    ></app-skill-grid>
+  </div>
+  <div *ngIf="comm.concepts$ | async as concepts" class="">
+    <app-skill-grid
+      [themeState]="themeDark"
+      [titleLabel]="'Concepts: '"
+      [skills]="concepts"
+    ></app-skill-grid>
+  </div>
+</div>

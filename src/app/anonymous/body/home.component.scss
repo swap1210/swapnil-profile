@@ -1,0 +1,12 @@
+.transparent {
+  opacity: 0;
+}
+.home-split {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 2fr;
+}
+.home-split-horiz {
+  display: flex;
+  justify-content: space-between;
+}
