@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.auth.anonymousLogin();
     this.auth.user$?.pipe(takeUntil(this.destroy$)).subscribe((usr) => {
-      console.log('User ', usr);
+      // console.log('User ', usr);
       //sign in anonymously if not logged in
       if (!usr) {
         console.log('logging in as anonymous user');

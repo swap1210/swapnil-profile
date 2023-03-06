@@ -49,6 +49,7 @@ export class CommonService {
     //refresh data everytime the user status changes
     this.auth.user$.subscribe({
       next: (ur) => {
+        console.log(ur);
         if (ur) {
           this.initBasicInfo();
         }
@@ -61,7 +62,7 @@ export class CommonService {
   initBasicInfo = () => {
     this.header$.next(this.basicInfoObj.header);
     this.footer$.next(this.basicInfoObj.footer);
-    if (environment.production) {
+    if (!environment.production) {
       let self = this;
       this.afs
         .doc<any>(`common/basic-info`)
@@ -79,9 +80,11 @@ export class CommonService {
               tools,
               others,
               operatingSystems,
+              body,
             } = val.data();
             // self.header$.next(val.data().header);
-            // self.body$.next(val.data().body);
+            // console.log(operatingSystems);
+            self.body$.next(body);
             this.skills$.next(skills as Skill[]);
             this.frameworks$.next(frameworks as Skill[]);
             this.webDevelopments$.next(webDevelopments as Skill[]);

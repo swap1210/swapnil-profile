@@ -15,6 +15,6 @@ export class SkillCardComponent implements OnInit {
   constructor(public cm: CommonService) {}
 
   ngOnInit(): void {
-    console.log(this.curLogoImg?.nativeElement.getBoundingClientRect());
+    // console.log(this.curLogoImg?.nativeElement.getBoundingClientRect());
   }
 }
