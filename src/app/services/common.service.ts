@@ -62,7 +62,7 @@ export class CommonService {
   initBasicInfo = () => {
     this.header$.next(this.basicInfoObj.header);
     this.footer$.next(this.basicInfoObj.footer);
-    if (environment.production || !environment.production) {
+    if (environment.production) {
       let self = this;
       this.afs
         .doc<any>(`common/basic-info`)

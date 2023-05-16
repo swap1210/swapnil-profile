@@ -11,7 +11,7 @@ import { ImpDialogComponent } from './imp-dialog/imp-dialog.component';
 })
 export class AppComponent implements OnInit {
   darkMode = false;
-  constructor(private comm: CommonService, private dialog: MatDialog) {}
+  constructor(public comm: CommonService, private dialog: MatDialog) {}
   ngOnInit(): void {
     this.comm.darkThemeState$.subscribe({
       next: (val: boolean) => {

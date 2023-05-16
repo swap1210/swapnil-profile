@@ -1,4 +1,7 @@
-<div class="parent" [ngClass]="{ darkMode: darkMode, darker: darkMode }">
+<div
+  class="parent"
+  [ngClass]="{ darkMode: (comm.darkThemeState$ | async), darker: darkMode }"
+>
   <header class="section">
     <app-header></app-header>
   </header>
