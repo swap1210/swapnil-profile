@@ -35,3 +35,8 @@ footer {
 .standard-Pad {
   padding: 2em;
 }
+.my-header {
+  position: fixed;
+  width: 100vw;
+  z-index: 50;
+}

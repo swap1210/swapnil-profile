@@ -1,51 +1,6 @@
-<mat-toolbar [style]="{ height: '4em' }" color=""
+<mat-toolbar [style]="{ height: '4em' }"
   ><img class="header-app-icon" [src]="header.appIconLink" />
-  <div class="appNameDiv">
-    <span class="appName" [innerText]="header.appName || util.appName"></span>
-    <span class="appDesc" [innerText]="header.appDesc || util.appDesc"></span>
-  </div>
   <span class="spacer"></span>
-  <a
-    [href]="header.linkedin.link || 'http://www.w3.org/2000/svg'"
-    mat-icon-button
-    aria-label=""
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-    >
-      <path
-        ngClass="{{
-          (commData.darkThemeState$ | async) ? 'linkDarkLogo' : 'linkLogo'
-        }}"
-        #linkedinLogo
-      ></path>
-    </svg>
-  </a>
-  <a
-    [href]="header.github.link || 'http://www.w3.org/2000/svg'"
-    mat-icon-button
-    aria-label=""
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      version="1.1"
-      viewBox="0 0 16 16"
-      data-view-component="true"
-    >
-      <path
-        ngClass="{{
-          (commData.darkThemeState$ | async) ? 'linkDarkLogo' : 'linkLogo'
-        }}"
-        fill-rule="evenodd"
-        #githubLogo
-      ></path>
-    </svg>
-  </a>
   <button
     mat-icon-button
     (click)="switchTheme()"

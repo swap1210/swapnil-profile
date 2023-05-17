@@ -35,13 +35,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   };
   notifications: Notification[] = [];
   // themeVal = false;
-  @ViewChild('linkedinLogo')
-  linkedinLogo!: ElementRef;
-  @ViewChild('githubLogo')
-  githubLogo!: ElementRef;
 
   constructor(
-    private renderer2: Renderer2,
     private router: Router,
     private authService: AuthService,
     public commData: CommonService
@@ -67,23 +62,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((userObj_in_body) => {
         if (userObj_in_body.notification) {
           this.notifications = userObj_in_body.notification;
-        }
-      });
-    this.commData.header$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((userObj_in_header) => {
-        if (Object.keys(userObj_in_header).length != 0) {
-          this.header = userObj_in_header;
-          this.renderer2.setAttribute(
-            this.linkedinLogo.nativeElement,
-            'd',
-            this.header.linkedin.logo
-          );
-          this.renderer2.setAttribute(
-            this.githubLogo.nativeElement,
-            'd',
-            this.header.github.logo
-          );
         }
       });
 

@@ -19,6 +19,8 @@ import { HomeComponent } from './anonymous_v2/body/home.component';
 import { FooterComponent } from './anonymous_v2/footer/footer.component';
 import { HeaderComponent } from './anonymous_v2/header/header.component';
 import { FooterCardComponent } from './anonymous_v2/footer/footer-card/footer-card.component';
+import { IntroComponent } from './anonymous_v2/body/intro/intro.component';
+import { BioComponent } from './anonymous_v2/body/bio/bio.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FooterCardComponent } from './anonymous_v2/footer/footer-card/footer-ca
     HeaderComponent,
     ImpDialogComponent,
     FooterCardComponent,
+    IntroComponent,
+    BioComponent,
   ],
   imports: [
     BrowserModule,

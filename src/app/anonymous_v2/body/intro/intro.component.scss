@@ -1,0 +1,36 @@
+@use "@angular/material" as mat;
+@import "../../../../theme/vars.scss";
+
+.transparent {
+  opacity: 0;
+}
+
+.home-split-horiz {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkLogo {
+  fill: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
+}
+.linkDarkLogo {
+  fill: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
+}
+.popped-link {
+  display: flex;
+  row-gap: 4em;
+  flex-direction: column;
+}
+
+.appNameDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.appName {
+  font-size: 8em;
+  font-weight: bold;
+}
+.appDesc {
+  font-size: 0.8em;
+}
