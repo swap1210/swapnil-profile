@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Header } from 'src/app/models/header';
@@ -29,7 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   header: Header = {
     appIconLink: '',
     appName: '',
-    appDesc: '',
+    appDesc: [''],
     linkedin: { link: '', logo: '' },
     github: { link: '', logo: '' },
   };

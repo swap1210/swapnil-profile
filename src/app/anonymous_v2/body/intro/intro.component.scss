@@ -1,6 +1,10 @@
 @use "@angular/material" as mat;
 @import "../../../../theme/vars.scss";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
 
+.source-code-anchor {
+  height: fit-content;
+}
 .transparent {
   opacity: 0;
 }
@@ -10,27 +14,45 @@
   justify-content: space-between;
 }
 
-.linkLogo {
-  fill: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
-}
-.linkDarkLogo {
-  fill: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
-}
-.popped-link {
-  display: flex;
-  row-gap: 4em;
-  flex-direction: column;
-}
-
 .appNameDiv {
   display: flex;
+  row-gap: 1em;
+  font-size: 5em;
   flex-direction: column;
+  justify-content: space-between;
+  font-family: "Josefin Sans", sans-serif;
+  padding-bottom: 1em;
 }
-
 .appName {
-  font-size: 8em;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 2em;
+  width: 5em;
+  line-height: initial;
+  text-align: left;
 }
 .appDesc {
-  font-size: 0.8em;
+  display: flex;
+  font-size: 0.4em;
+  font-weight: 800;
+  b {
+    font-size: 1.2em;
+  }
+}
+
+.animate.pop {
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  animation-duration: 0.5s;
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }

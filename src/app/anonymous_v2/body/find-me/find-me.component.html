@@ -1,0 +1,37 @@
+<div class="popped-link" [ngClass]="{ ver: !lr_direction, hor: lr_direction }">
+  <a [href]="header.linkedin.link" mat-icon-button aria-label="">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="45"
+      viewBox="0 0 24 24"
+    >
+      <path
+        [ngClass]="{
+          linkDarkLogo: darkMode,
+          linkLogo: !darkMode
+        }"
+        #linkedinLogo
+      ></path>
+    </svg>
+  </a>
+  <a [href]="header.github.link" mat-icon-button aria-label="">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="45"
+      height="45"
+      version="1.1"
+      viewBox="0 0 16 16"
+      data-view-component="true"
+    >
+      <path
+        [ngClass]="{
+          linkDarkLogo: darkMode,
+          linkLogo: !darkMode
+        }"
+        fill-rule="evenodd"
+        #githubLogo
+      ></path>
+    </svg>
+  </a>
+</div>

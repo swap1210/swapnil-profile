@@ -1,11 +1,15 @@
 import {
+  ApplicationRef,
+  ChangeDetectorRef,
   Component,
   ElementRef,
+  Input,
+  NgZone,
+  OnDestroy,
   OnInit,
-  Renderer2,
-  ViewChild,
 } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { Header } from 'src/app/models/header';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
@@ -13,30 +17,37 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, OnDestroy {
+  @Input()
+  header!: Header;
+  @Input()
+  darkMode!: boolean;
+  totalSkills: number = 0;
+  shownSkill: number = 0;
   destroy$: Subject<boolean> = new Subject<boolean>();
-  @ViewChild('linkedinLogo')
-  linkedinLogo!: ElementRef;
-  @ViewChild('githubLogo')
-  githubLogo!: ElementRef;
-  constructor(private renderer2: Renderer2, public commData: CommonService) {}
+
+  constructor(private ref: ChangeDetectorRef) {}
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
 
   ngOnInit(): void {
-    this.commData.header$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((userObj_in_header) => {
-        if (Object.keys(userObj_in_header).length != 0) {
-          this.renderer2.setAttribute(
-            this.linkedinLogo.nativeElement,
-            'd',
-            userObj_in_header.linkedin.logo
-          );
-          this.renderer2.setAttribute(
-            this.githubLogo.nativeElement,
-            'd',
-            userObj_in_header.github.logo
-          );
-        }
-      });
+    this.totalSkills = this.header.appDesc.length;
+    var skillChanger = setInterval(() => {
+      console.log('Doing ', this.shownSkill);
+      if (this.shownSkill == this.totalSkills) {
+        this.shownSkill = 0;
+      } else {
+        this.shownSkill++;
+      }
+      this.ref.markForCheck();
+    }, 3000);
+    this.destroy$.subscribe({
+      complete: () => {
+        clearInterval(skillChanger);
+      },
+    });
   }
 }

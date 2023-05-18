@@ -4,6 +4,7 @@ import { Util } from 'src/app/services/Util';
 import { Welcome } from 'src/app/models/welcome';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonService } from 'src/app/services/common.service';
+import { Header } from 'src/app/models/header';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   themeDark: boolean = false;
+  header!: Header;
 
   constructor(public auth: AuthService, public comm: CommonService) {}
 
@@ -42,6 +44,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.comm.darkThemeState$
       .pipe(takeUntil(this.destroy$))
       .subscribe((val: boolean) => (this.themeDark = val));
+    this.comm.header$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((val: Header) => (this.header = val));
     this.comm.body$.pipe(takeUntil(this.destroy$)).subscribe((dat) => {
       if ('welcome' in dat) {
         this.welcome = dat.welcome;

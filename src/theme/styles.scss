@@ -10,6 +10,13 @@
   background-color: mat.get-color-from-palette($profile-ang-dark-primary, 500);
   color: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
 }
+.day-without-bg {
+  color: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
+}
+
+.night-without-bg {
+  color: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
+}
 
 html,
 body {
@@ -118,5 +125,12 @@ img {
   z-index: 1;
 }
 .each-block {
-  margin: 10em 5em;
+  margin: 10em 2em 2em 2em;
+}
+.is-visible {
+  display: block;
+}
+
+.is-hidden {
+  display: none;
 }

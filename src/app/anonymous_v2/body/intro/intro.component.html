@@ -1,73 +1,40 @@
 <div class="each-block">
   <div class="home-split-horiz">
-    <div class="appNameDiv">
-      <span
-        class="appName"
-        color="primary"
-        [innerText]="(commData.header$ | async).appName"
-      ></span>
-      <span
-        class="appDesc"
-        [innerText]="(commData.header$ | async).appDesc"
-      ></span>
+    <div
+      class="appNameDiv"
+      [ngClass]="{
+        'day-without-bg': !darkMode,
+        'night-without-bg': darkMode
+      }"
+    >
+      <div class="appName" [innerText]="header.appName"></div>
+      <span class="appDesc">
+        Experienced&nbsp;
+        <b
+          *ngFor="let profile of header.appDesc; let i = index"
+          class="animate pop"
+          [ngClass]="{
+            'is-hidden': profile != header.appDesc[shownSkill],
+            'is-visible': profile == header.appDesc[shownSkill]
+          }"
+          [innerText]="profile"
+        ></b>
+      </span>
     </div>
-    <a
-      mat-button
-      href="https://github.com/swap1210/swapnil-profile"
-      target="_blank"
-      class="mat-display-2"
-      matTooltip="This site is open source!"
-      >&lt;/&gt;</a
-    >
-  </div>
-  <div class="popped-link">
-    <a
-      [href]="
-        (commData.header$ | async).linkedin?.link ||
-        'http://www.w3.org/2000/svg'
-      "
-      mat-icon-button
-      aria-label=""
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="45"
-        height="45"
-        viewBox="0 0 24 24"
+    <div class="right-intro">
+      <a
+        mat-button
+        href="https://github.com/swap1210/swapnil-profile"
+        target="_blank"
+        class="mat-display-2 source-code-anchor"
+        matTooltip="Source code of this site!"
+        >&lt;/&gt;</a
       >
-        <path
-          [ngClass]="{
-            linkDarkLogo: (commData.darkThemeState$ | async),
-            linkLogo: !(commData.darkThemeState$ | async)
-          }"
-          #linkedinLogo
-        ></path>
-      </svg>
-    </a>
-    <a
-      [href]="
-        (commData.header$ | async).github?.link || 'http://www.w3.org/2000/svg'
-      "
-      mat-icon-button
-      aria-label=""
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="45"
-        height="45"
-        version="1.1"
-        viewBox="0 0 16 16"
-        data-view-component="true"
-      >
-        <path
-          [ngClass]="{
-            linkDarkLogo: (commData.darkThemeState$ | async),
-            linkLogo: !(commData.darkThemeState$ | async)
-          }"
-          fill-rule="evenodd"
-          #githubLogo
-        ></path>
-      </svg>
-    </a>
+    </div>
   </div>
+  <app-find-me
+    [header]="header"
+    [darkMode]="darkMode"
+    [lr_direction]="false"
+  ></app-find-me>
 </div>

@@ -1,5 +1,7 @@
 /* my-component.scss */
 
+@import "../../../theme/vars.scss";
+
 .badge {
   margin: 2px;
 }
@@ -15,4 +17,11 @@
   border-radius: 0.5em;
   margin-top: 0.3em;
   margin-right: 0.3em;
+}
+.main-header {
+  background-color: $base-bg-color;
+}
+
+.main-header-darker {
+  background-color: $base-bg-darker-color;
 }

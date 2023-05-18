@@ -1,0 +1,23 @@
+@use "@angular/material" as mat;
+@import "../../../../theme/vars.scss";
+
+.popped-link {
+  display: flex;
+}
+
+.hor {
+  flex-direction: row;
+  column-gap: 4em;
+}
+
+.ver {
+  flex-direction: column;
+  row-gap: 4em;
+}
+
+.linkLogo {
+  fill: mat.get-contrast-color-from-palette($profile-ang-primary, 500);
+}
+.linkDarkLogo {
+  fill: mat.get-contrast-color-from-palette($profile-ang-dark-primary, 500);
+}

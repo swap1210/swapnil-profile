@@ -21,6 +21,7 @@ import { HeaderComponent } from './anonymous_v2/header/header.component';
 import { FooterCardComponent } from './anonymous_v2/footer/footer-card/footer-card.component';
 import { IntroComponent } from './anonymous_v2/body/intro/intro.component';
 import { BioComponent } from './anonymous_v2/body/bio/bio.component';
+import { FindMeComponent } from './anonymous_v2/body/find-me/find-me.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { BioComponent } from './anonymous_v2/body/bio/bio.component';
     FooterCardComponent,
     IntroComponent,
     BioComponent,
+    FindMeComponent,
   ],
   imports: [
     BrowserModule,
