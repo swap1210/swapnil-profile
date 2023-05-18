@@ -22,7 +22,6 @@ export class IntroComponent implements OnInit, OnDestroy {
   header!: Header;
   @Input()
   darkMode!: boolean;
-  totalSkills: number = 0;
   shownSkill: number = 0;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -34,10 +33,9 @@ export class IntroComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.totalSkills = this.header.appDesc.length;
     var skillChanger = setInterval(() => {
-      console.log('Doing ', this.shownSkill);
-      if (this.shownSkill == this.totalSkills) {
+      let totalSkills = this.header.appDesc.length;
+      if (this.shownSkill == totalSkills - 1) {
         this.shownSkill = 0;
       } else {
         this.shownSkill++;

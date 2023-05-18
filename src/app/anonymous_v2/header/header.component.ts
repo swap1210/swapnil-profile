@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   header: Header = {
     appIconLink: '',
     appName: '',
-    appDesc: [''],
+    appDesc: [],
     linkedin: { link: '', logo: '' },
     github: { link: '', logo: '' },
   };
