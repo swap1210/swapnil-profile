@@ -3,7 +3,7 @@
   [ngClass]="{ darkMode: (comm.darkThemeState$ | async), darker: darkMode }"
 >
   <header class="my-header section">
-    <app-header></app-header>
+    <app-header [header]="header"></app-header>
   </header>
   <div class="left-side section"></div>
   <main class="section"><router-outlet></router-outlet></main>

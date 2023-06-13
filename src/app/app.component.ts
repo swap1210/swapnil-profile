@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonService } from './services/common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ImpDialogComponent } from './imp-dialog/imp-dialog.component';
+import { Header } from './models/header';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,13 @@ import { ImpDialogComponent } from './imp-dialog/imp-dialog.component';
 })
 export class AppComponent implements OnInit {
   darkMode = false;
+  header!: Header;
   constructor(public comm: CommonService, private dialog: MatDialog) {}
   ngOnInit(): void {
+    console.log(
+      '%c' + 'Hi, Fellow Developer! 🙋🏽‍♂️',
+      'color: #7289DA; -webkit-text-stroke: 2px black; font-size: 42px; font-weight: bold;'
+    );
     this.comm.darkThemeState$.subscribe({
       next: (val: boolean) => {
         this.darkMode = val;
@@ -35,6 +41,11 @@ export class AppComponent implements OnInit {
         dialogRef.afterClosed().subscribe((result) => {
           console.log('The dialog was closed', result);
         });
+      },
+    });
+    this.comm.header$.subscribe({
+      next: (val) => {
+        this.header = val;
       },
     });
   }

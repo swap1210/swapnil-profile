@@ -1,0 +1,33 @@
+.bio-flex {
+  display: flex;
+  column-gap: 1em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1em;
+}
+.profile-img {
+  border-radius: 30%;
+  max-height: 25em;
+}
+
+.big-font {
+  font-size: 2em;
+}
+
+.bigger-font {
+  font-size: 1.2em;
+}
+
+.para {
+  line-height: 2em;
+  text-align: justify;
+  max-width: 60em;
+}
+
+.para-body {
+  margin-top: 1em;
+}
+
+.medium-font {
+  font-size: 1.5em;
+}

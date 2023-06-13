@@ -1,5 +1,6 @@
 @use "@angular/material" as mat;
 @import "vars.scss";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
 
 .day {
   background-color: mat.get-color-from-palette($profile-ang-primary, 500);
@@ -23,6 +24,11 @@ body {
   margin: 0em;
   height: 100vh;
   display: grid;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .page-banner {
   display: flex;
@@ -133,4 +139,8 @@ img {
 
 .is-hidden {
   display: none;
+}
+
+.fancy-font {
+  font-family: "Josefin Sans", sans-serif;
 }

@@ -22,6 +22,9 @@ import { FooterCardComponent } from './anonymous_v2/footer/footer-card/footer-ca
 import { IntroComponent } from './anonymous_v2/body/intro/intro.component';
 import { BioComponent } from './anonymous_v2/body/bio/bio.component';
 import { FindMeComponent } from './anonymous_v2/body/find-me/find-me.component';
+import { SkillGridComponent } from './anonymous_v2/body/intro/skill-grid/skill-grid.component';
+import { SkillCardComponent } from './anonymous_v2/body/intro/skill-grid/skill-card/skill-card.component';
+import { ContactMeComponent } from './anonymous_v2/body/contact-me/contact-me.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { FindMeComponent } from './anonymous_v2/body/find-me/find-me.component';
     IntroComponent,
     BioComponent,
     FindMeComponent,
+    SkillGridComponent,
+    SkillCardComponent,
+    ContactMeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,61 @@
-<p>bio works!</p>
+<div
+  class="each-block bio-flex"
+  [ngClass]="{
+    'day-without-bg': !darkMode,
+    'night-without-bg': darkMode
+  }"
+>
+  <img class="profile-img" [src]="header.appIconLink" alt="" />
+  <div class="para">
+    <div
+      class="para-title big-font"
+      [innerHTML]="allSkills.aboutMe.title"
+    ></div>
+    <div
+      class="para-body medium-font"
+      [innerHTML]="allSkills.aboutMe.intro"
+    ></div>
+    <ul class="medium-font">
+      <li
+        [innerHtml]="
+          '<b>Programming Languages:</b> ' +
+          allSkills.skills.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Web Development:</b> ' +
+          allSkills.webdevelopment.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Frameworks:</b> ' +
+          allSkills.frameworks.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Databases:</b> ' +
+          allSkills.frameworks.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Tools:</b> ' + allSkills.tools.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Concepts:</b> ' + allSkills.concepts.map(transformFunc).join(', ')
+        "
+      ></li>
+      <li
+        [innerHtml]="
+          '<b>Application Server:</b> ' +
+          allSkills.frameworks.map(transformFunc).join(', ')
+        "
+      ></li>
+    </ul>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="each-block">
   <div class="home-split-horiz">
     <div
-      class="appNameDiv"
+      class="appNameDiv fancy-font"
       [ngClass]="{
         'day-without-bg': !darkMode,
         'night-without-bg': darkMode
@@ -20,6 +20,11 @@
           [innerText]="profile"
         ></b>
       </span>
+      <app-find-me
+        [header]="header"
+        [darkMode]="darkMode"
+        [lr_direction]="false"
+      ></app-find-me>
     </div>
     <div class="right-intro">
       <a
@@ -30,11 +35,7 @@
         matTooltip="Source code of this site!"
         >&lt;/&gt;</a
       >
+      <app-skill-grid [skills]="skills"></app-skill-grid>
     </div>
   </div>
-  <app-find-me
-    [header]="header"
-    [darkMode]="darkMode"
-    [lr_direction]="false"
-  ></app-find-me>
 </div>

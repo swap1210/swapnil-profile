@@ -9,6 +9,7 @@ import { Skill } from '../models/skill';
 import { environment } from 'src/environments/environment';
 import { Experience } from '../models/experience';
 import { Header } from '../models/header';
+import { AboutMe } from '../models/aboutme';
 
 @Injectable({
   providedIn: 'root',
@@ -53,6 +54,11 @@ export class CommonService {
     Experience[]
   >([]);
 
+  public aboutMe$: BehaviorSubject<AboutMe> = new BehaviorSubject<AboutMe>({
+    intro: '',
+    title: '',
+  });
+
   public darkThemeState$: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   constructor(
@@ -95,6 +101,7 @@ export class CommonService {
               others,
               operatingSystems,
               body,
+              aboutMe,
             } = val.data();
             // self.header$.next(val.data().header);
             // console.log(operatingSystems);
@@ -108,7 +115,6 @@ export class CommonService {
             this.tools$.next(tools as Skill[]);
             this.others$.next(others as Skill[]);
             this.operatingSystems$.next(operatingSystems as Skill[]);
-
             this.experiences$.next(experiences as Experience[]);
           },
           complete: () => {
@@ -126,6 +132,7 @@ export class CommonService {
       this.tools$.next(this.tObj);
       this.others$.next(this.oObj);
       this.operatingSystems$.next(this.osObj);
+      this.aboutMe$.next(this.aboutMe);
     }
   };
 
@@ -314,7 +321,7 @@ export class CommonService {
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FUnofficial_JavaScript_logo_2.svg?alt=media&token=9a507834-828a-4467-98a6-1899d07e4de1',
     },
     {
-      title: 'PL/SQL',
+      title: 'Oracle PL/SQL',
       logo: 'https://firebasestorage.googleapis.com/v0/b/swapnilpatel-projects.appspot.com/o/skills%2Flogos%2FAppDev_plsql_detailed.svg?alt=media&token=ae6121d9-1622-46e1-a45b-eedbecd0897c',
       sequence: 6,
     },
@@ -483,9 +490,16 @@ export class CommonService {
       // },
       {
         link: 'about-us',
-        title: 'Developed by <u>Swapnil Patel</u> 🙂',
+        title: 'Developed by <b>Swapnil Patel</b> 🙂',
         icon: 'face',
       },
     ],
+  };
+
+  readonly aboutMe: AboutMe = {
+    title:
+      '<div class="fancy-font">About Me</div>     I\'m <span class="fancy-font bigger-font">Swapnil Patel</span     ><br />Full-stack <span class="fancy-font bigger-font">Developer</span     ><br />Based in     <span class="fancy-font bigger-font">Houston, TX</span>',
+    intro:
+      "I have a background in Computer Science in both Undergrad and Grad, having       earned a Bachelor's and a Masters's degree in 2016 and 2023 respectively.       Since beginning my career as a Associate Software Developer 7 years ago, I       have gained experience building fintech web applications, EBS technical       consutant, adding features to CRM apps, and managing open-source side       projects. I also have nearly 4 years of Frontend Developement experience       in Angular and Node. I am passionate about creating feature-rich       applications that are efficient, user-friendly, and well-documented. I am       proficient in a variety of front-end and back-end technologies, including:",
   };
 }

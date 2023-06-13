@@ -1,10 +1,20 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import {
+  Subject,
+  combineLatest,
+  forkJoin,
+  mapTo,
+  merge,
+  takeUntil,
+} from 'rxjs';
 import { Util } from 'src/app/services/Util';
 import { Welcome } from 'src/app/models/welcome';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonService } from 'src/app/services/common.service';
 import { Header } from 'src/app/models/header';
+import { Skill } from 'src/app/models/skill';
+import { AboutMe } from 'src/app/models/aboutme';
+import { AllSkills } from 'src/app/models/allSkills';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +31,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   themeDark: boolean = false;
   header!: Header;
+  allSkills: AllSkills = {
+    webdevelopment: [],
+    skills: [],
+    aboutMe: { title: '', intro: '' },
+    frameworks: [],
+    databases: [],
+    tools: [],
+    concepts: [],
+  };
 
   constructor(public auth: AuthService, public comm: CommonService) {}
 
@@ -47,6 +66,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.comm.header$
       .pipe(takeUntil(this.destroy$))
       .subscribe((val: Header) => (this.header = val));
+
+    combineLatest({
+      webdevelopment: this.comm.webDevelopments$,
+      skills: this.comm.skills$,
+      aboutMe: this.comm.aboutMe$,
+      frameworks: this.comm.frameworks$,
+      databases: this.comm.databases$,
+      tools: this.comm.tools$,
+      concepts: this.comm.concepts$,
+    })
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((val) => {
+        console.log(val);
+        this.allSkills = val;
+      });
+
     this.comm.body$.pipe(takeUntil(this.destroy$)).subscribe((dat) => {
       if ('welcome' in dat) {
         this.welcome = dat.welcome;

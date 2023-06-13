@@ -1,16 +1,13 @@
 import {
-  ApplicationRef,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   Input,
-  NgZone,
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Header } from 'src/app/models/header';
-import { CommonService } from 'src/app/services/common.service';
+import { Skill } from 'src/app/models/skill';
 
 @Component({
   selector: 'app-intro',
@@ -20,6 +17,8 @@ import { CommonService } from 'src/app/services/common.service';
 export class IntroComponent implements OnInit, OnDestroy {
   @Input()
   header!: Header;
+  @Input()
+  skills!: Skill[];
   @Input()
   darkMode!: boolean;
   shownSkill: number = 0;

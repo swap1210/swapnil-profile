@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Header } from 'src/app/models/header';
@@ -19,14 +19,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuthorized = false;
   isUser = false;
   isAdmin = false;
-  header: Header = {
-    appIconLink: '',
-    appName: '',
-    appDesc: [],
-    linkedin: { link: '', logo: '' },
-    github: { link: '', logo: '' },
-  };
   notifications: Notification[] = [];
+  @Input()
+  header!: Header;
   // themeVal = false;
 
   constructor(

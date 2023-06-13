@@ -1,6 +1,5 @@
 @use "@angular/material" as mat;
 @import "../../../../theme/vars.scss";
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
 
 .source-code-anchor {
   height: fit-content;
@@ -20,7 +19,6 @@
   font-size: 5em;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Josefin Sans", sans-serif;
   padding-bottom: 1em;
 }
 .appName {
@@ -55,4 +53,9 @@
     opacity: 1;
     transform: scale(1, 1);
   }
+}
+.right-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

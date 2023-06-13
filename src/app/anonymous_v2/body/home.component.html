@@ -1,5 +1,15 @@
 <!-- keep on listing components after components -->
 <div class="take-fullscreen">
-  <app-intro [header]="header" [darkMode]="themeDark"></app-intro>
+  <app-intro
+    [header]="header"
+    [darkMode]="themeDark"
+    [skills]="allSkills.skills"
+  ></app-intro>
 </div>
-<div class="take-fullscreen"><app-bio></app-bio></div>
+<div class="take-fullscreen">
+  <app-bio
+    [header]="header"
+    [darkMode]="themeDark"
+    [allSkills]="allSkills"
+  ></app-bio>
+</div>
