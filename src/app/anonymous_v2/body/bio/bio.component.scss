@@ -1,7 +1,7 @@
 .bio-flex {
   display: flex;
   column-gap: 1em;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   row-gap: 1em;
 }
@@ -21,6 +21,7 @@
 .para {
   line-height: 2em;
   text-align: justify;
+  min-width: 20em;
   max-width: 60em;
 }
 
@@ -28,6 +29,14 @@
   margin-top: 1em;
 }
 
+.para-title {
+  line-height: 1em;
+  align-self: center;
+}
+
 .medium-font {
   font-size: 1.5em;
+}
+.skills {
+  text-align: left;
 }

@@ -6,16 +6,13 @@
   }"
 >
   <img class="profile-img" [src]="header.appIconLink" alt="" />
+  <div class="para-title big-font" [innerHTML]="allSkills.aboutMe.title"></div>
   <div class="para">
-    <div
-      class="para-title big-font"
-      [innerHTML]="allSkills.aboutMe.title"
-    ></div>
     <div
       class="para-body medium-font"
       [innerHTML]="allSkills.aboutMe.intro"
     ></div>
-    <ul class="medium-font">
+    <ul class="skills medium-font">
       <li
         [innerHtml]="
           '<b>Programming Languages:</b> ' +
