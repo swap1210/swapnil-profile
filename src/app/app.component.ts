@@ -11,7 +11,6 @@ import { Header } from './models/header';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  header!: Header;
   constructor(public comm: CommonService, private dialog: MatDialog) {}
   ngOnInit(): void {
     console.log(
@@ -35,11 +34,6 @@ export class AppComponent implements OnInit {
         dialogRef.afterClosed().subscribe((result) => {
           console.log('The dialog was closed', result);
         });
-      },
-    });
-    this.comm.header$.subscribe({
-      next: (val) => {
-        this.header = val;
       },
     });
   }

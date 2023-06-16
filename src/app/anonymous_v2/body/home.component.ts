@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
       .pipe(takeUntil(this.destroy$))
       .subscribe((val) => {
-        console.log(val);
+        // console.log(val);
         this.allSkills = val;
       });
 

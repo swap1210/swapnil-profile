@@ -490,7 +490,7 @@ export class CommonService {
       // },
       {
         link: 'about-us',
-        title: 'Developed by <b>Swapnil Patel</b> 🙂',
+        title: 'Developed by <b>Swapnil Patel</b> © 2023 🙂',
         icon: 'face',
       },
     ],

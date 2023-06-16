@@ -6,12 +6,16 @@
   }"
 >
   <header class="my-header section">
-    <app-header [header]="header"></app-header>
+    <app-header [header]="comm.header$ | async"></app-header>
   </header>
   <div class="left-side section"></div>
   <main class="section"><router-outlet></router-outlet></main>
   <div class="right-side section"></div>
   <footer class="section">
-    <app-footer></app-footer>
+    <app-footer
+      [header]="comm.header$ | async"
+      [footer]="comm.footer$ | async"
+      [darkMode]="(comm.darkThemeState$ | async) || false"
+    ></app-footer>
   </footer>
 </div>

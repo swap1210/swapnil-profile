@@ -1,12 +1,12 @@
 <div
   [ngClass]="{
     recShape: true,
-    night: (cs.darkThemeState$ | async),
-    day: !(cs.darkThemeState$ | async)
+    night: darkMode,
+    day: !darkMode
   }"
 >
   <app-footer-card
-    *ngFor="let rec of cs.footer$ | async"
+    *ngFor="let rec of footer"
     [footerData]="rec"
   ></app-footer-card>
 </div>

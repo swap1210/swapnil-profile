@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAdmin = false;
   notifications: Notification[] = [];
   @Input()
-  header!: Header;
+  header: Header | null | undefined;
   // themeVal = false;
 
   constructor(
