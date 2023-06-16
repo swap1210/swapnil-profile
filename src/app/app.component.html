@@ -13,7 +13,8 @@
   <div class="right-side section"></div>
   <footer class="section">
     <app-footer
-      [header]="comm.header$ | async"
+      *ngIf="comm.header$ | async as header"
+      [header]="header"
       [footer]="comm.footer$ | async"
       [darkMode]="(comm.darkThemeState$ | async) || false"
     ></app-footer>

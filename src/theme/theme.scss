@@ -1,5 +1,11 @@
 @use "@angular/material" as mat;
 @import "./vars.scss";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
+
+// $my-typography: mat.define-typography-config(
+//   $headline-1:
+//     mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+// );
 
 $profile-app: mat.define-light-theme(
   (
@@ -24,8 +30,15 @@ $profile-dark-theme: mat.define-dark-theme(
 @include mat.all-component-themes($profile-app);
 .darkMode {
   @include mat.all-component-colors($profile-dark-theme);
-  // color: red;
 }
+$my-typography: mat.define-typography-config(
+  $headline:
+    mat.define-typography-level(
+      $font-family: '"Josefin Sans", sans-serif;',
+      $font-size: 2em,
+    ),
+);
+@include mat.all-component-typographies($my-typography);
 // @include mat.button-theme($profile-app);
 // @include mat.toolbar-theme($profile-app);
 // @include mat.table-theme($profile-app);

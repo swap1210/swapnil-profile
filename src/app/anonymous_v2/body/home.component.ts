@@ -1,19 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {
-  Subject,
-  combineLatest,
-  forkJoin,
-  mapTo,
-  merge,
-  takeUntil,
-} from 'rxjs';
+import { Subject, combineLatest, takeUntil } from 'rxjs';
 import { Util } from 'src/app/services/Util';
 import { Welcome } from 'src/app/models/welcome';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonService } from 'src/app/services/common.service';
-import { Header } from 'src/app/models/header';
-import { Skill } from 'src/app/models/skill';
-import { AboutMe } from 'src/app/models/aboutme';
 import { AllSkills } from 'src/app/models/allSkills';
 
 @Component({
@@ -29,8 +19,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   WelcomeMessageViewed = false;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  themeDark: boolean = false;
-  header!: Header;
   allSkills: AllSkills = {
     webdevelopment: [],
     skills: [],
@@ -60,12 +48,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         //once logged in start getting property
       }
     });
-    this.comm.darkThemeState$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((val: boolean) => (this.themeDark = val));
-    this.comm.header$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((val: Header) => (this.header = val));
 
     combineLatest({
       webdevelopment: this.comm.webDevelopments$,

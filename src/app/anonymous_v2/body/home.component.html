@@ -1,15 +1,21 @@
 <!-- keep on listing components after components -->
-<div class="take-fullscreen">
-  <app-intro
-    [header]="header"
-    [darkMode]="themeDark"
-    [skills]="allSkills.skills"
-  ></app-intro>
-</div>
-<div class="take-fullscreen">
-  <app-bio
-    [header]="header"
-    [darkMode]="themeDark"
-    [allSkills]="allSkills"
-  ></app-bio>
-</div>
+<ng-container *ngIf="comm.header$ | async as header">
+  <ng-container *ngIf="allSkills.skills.length > 0">
+    <!-- <ng-container *ngIf="comm.darkThemeState$ | async as darkThemeState"> -->
+    <div class="take-fullscreen">
+      <app-intro
+        [header]="header"
+        [darkMode]="false"
+        [skills]="allSkills.skills"
+      ></app-intro>
+    </div>
+    <div class="take-fullscreen">
+      <app-bio
+        [header]="header"
+        [darkMode]="false"
+        [allSkills]="allSkills"
+      ></app-bio>
+    </div>
+    <!-- </ng-container> -->
+  </ng-container>
+</ng-container>

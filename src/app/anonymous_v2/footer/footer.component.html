@@ -1,12 +1,13 @@
-<div
+<fieldset
   [ngClass]="{
     recShape: true,
     night: darkMode,
     day: !darkMode
   }"
 >
+  <legend><img class="app-icon" [src]="header.appIconLink" alt="" /></legend>
   <app-footer-card
     *ngFor="let rec of footer"
     [footerData]="rec"
   ></app-footer-card>
-</div>
+</fieldset>

@@ -1,7 +1,13 @@
 .recShape {
   height: 2em;
   display: flex;
-  flex-direction: row-reverse;
   align-items: flex-end;
   padding: 2.5em;
+}
+.app-icon {
+  height: 12em;
+  border-radius: 1em;
+}
+fieldset {
+  border: 0;
 }

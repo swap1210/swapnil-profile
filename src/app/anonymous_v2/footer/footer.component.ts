@@ -11,9 +11,9 @@ import { Util } from 'src/app/services/Util';
 })
 export class FooterComponent implements OnInit {
   @Input()
-  header: Header | null | undefined;
+  header!: Header;
   @Input()
-  footer: FooterModel[] = [];
+  footer!: FooterModel[];
   @Input()
   darkMode!: boolean;
   constructor() {}

@@ -33,7 +33,7 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     var skillChanger = setInterval(() => {
-      let totalSkills = this.header.appDesc.length;
+      let totalSkills = this.header!.appDesc.length;
       if (this.shownSkill == totalSkills - 1) {
         this.shownSkill = 0;
       } else {

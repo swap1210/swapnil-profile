@@ -15,7 +15,7 @@ import { AboutMe } from '../models/aboutme';
   providedIn: 'root',
 })
 export class CommonService {
-  public header$: BehaviorSubject<Header> = new BehaviorSubject<Header>({
+  public static readonly emptyHeader: Header = {
     appIconLink: '',
     appDesc: [''],
     appName: '',
@@ -27,7 +27,11 @@ export class CommonService {
       link: '',
       logo: '',
     },
-  });
+  };
+
+  public header$: BehaviorSubject<Header> = new BehaviorSubject<Header>(
+    CommonService.emptyHeader
+  );
   public body$: BehaviorSubject<any> = new BehaviorSubject<any>({});
   public footer$: BehaviorSubject<any> = new BehaviorSubject<FooterModel[]>([]);
   public skills$: BehaviorSubject<Skill[]> = new BehaviorSubject<Skill[]>([]);
