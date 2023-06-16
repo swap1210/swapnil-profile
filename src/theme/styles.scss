@@ -131,7 +131,7 @@ img {
   z-index: 1;
 }
 .each-block {
-  margin: 10em 2em 2em 2em;
+  margin: 0rem 2rem 2rem 2rem;
 }
 .is-visible {
   display: block;
@@ -143,4 +143,8 @@ img {
 
 .fancy-font {
   font-family: "Josefin Sans", sans-serif;
+}
+
+.first-block {
+  margin-top: 10rem;
 }

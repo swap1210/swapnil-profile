@@ -1,21 +1,40 @@
 <!-- keep on listing components after components -->
 <ng-container *ngIf="comm.header$ | async as header">
   <ng-container *ngIf="allSkills.skills.length > 0">
-    <!-- <ng-container *ngIf="comm.darkThemeState$ | async as darkThemeState"> -->
-    <div class="take-fullscreen">
+    <div
+      [ngClass]="{
+        'take-fullscreen': true,
+        'scroll-debug-bordered': debugEnv
+      }"
+    >
       <app-intro
         [header]="header"
-        [darkMode]="false"
+        [darkMode]="(comm.darkThemeState$ | async) || false"
         [skills]="allSkills.skills"
       ></app-intro>
     </div>
-    <div class="take-fullscreen">
+    <div
+      [ngClass]="{
+        'take-fullscreen': true,
+        'scroll-debug-bordered': debugEnv
+      }"
+    >
       <app-bio
         [header]="header"
-        [darkMode]="false"
+        [darkMode]="(comm.darkThemeState$ | async) || false"
         [allSkills]="allSkills"
       ></app-bio>
     </div>
-    <!-- </ng-container> -->
+    <div
+      [ngClass]="{
+        'take-fullscreen': true,
+        'scroll-debug-bordered': debugEnv
+      }"
+    >
+      <app-contact-me
+        [darkMode]="(comm.darkThemeState$ | async) || false"
+        [header]="header"
+      ></app-contact-me>
+    </div>
   </ng-container>
 </ng-container>

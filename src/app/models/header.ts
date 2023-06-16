@@ -6,4 +6,6 @@ export interface Header {
   appName: string;
   linkedin: Logo;
   github: Logo;
+  phone: { link: string; value: string };
+  email: { link: string; value: string };
 }

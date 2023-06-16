@@ -27,6 +27,14 @@ export class CommonService {
       link: '',
       logo: '',
     },
+    phone: {
+      link: '',
+      value: '',
+    },
+    email: {
+      link: '',
+      value: '',
+    },
   };
 
   public header$: BehaviorSubject<Header> = new BehaviorSubject<Header>(
@@ -446,6 +454,14 @@ export class CommonService {
         logo: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z',
         link: 'https://www.linkedin.com/in/swap1210/',
       },
+      phone: {
+        link: 'tel:+12817609163',
+        value: '+12817609163',
+      },
+      email: {
+        value: 'p.swap1210@gmail.com',
+        link: 'mailto:p.swap1210@gmail.com',
+      },
     },
     body: {
       notification: [
@@ -502,7 +518,7 @@ export class CommonService {
 
   readonly aboutMe: AboutMe = {
     title:
-      '<div class="fancy-font">About Me</div>     I\'m <span class="fancy-font bigger-font">Swapnil Patel</span     ><br />Full-stack <span class="fancy-font bigger-font">Developer</span     ><br />Based in     <span class="fancy-font bigger-font">Houston, TX</span>',
+      '<h2>About Me</h2>     I\'m <span class="fancy-font bigger-font">Swapnil Patel</span     ><br />Full-stack <span class="fancy-font bigger-font">Developer</span     ><br />Based in     <span class="fancy-font bigger-font">Houston, TX</span>',
     intro:
       "I have a background in Computer Science in both Undergrad and Grad, having       earned a Bachelor's and a Masters's degree in 2016 and 2023 respectively.       Since beginning my career as a Associate Software Developer 7 years ago, I       have gained experience building fintech web applications, EBS technical       consutant, adding features to CRM apps, and managing open-source side       projects. I also have nearly 4 years of Frontend Developement experience       in Angular and Node. I am passionate about creating feature-rich       applications that are efficient, user-friendly, and well-documented. I am       proficient in a variety of front-end and back-end technologies, including:",
   };

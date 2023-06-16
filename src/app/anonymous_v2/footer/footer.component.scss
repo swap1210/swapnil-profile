@@ -3,6 +3,7 @@
   display: flex;
   align-items: flex-end;
   padding: 2.5em;
+  justify-content: space-between;
 }
 .app-icon {
   height: 12em;
@@ -10,4 +11,9 @@
 }
 fieldset {
   border: 0;
+}
+.connect-div {
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
 }

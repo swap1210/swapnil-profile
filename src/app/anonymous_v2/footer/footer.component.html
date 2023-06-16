@@ -6,8 +6,18 @@
   }"
 >
   <legend><img class="app-icon" [src]="header.appIconLink" alt="" /></legend>
-  <app-footer-card
-    *ngFor="let rec of footer"
-    [footerData]="rec"
-  ></app-footer-card>
+  <div class="">
+    <app-footer-card
+      *ngFor="let rec of footer"
+      [footerData]="rec"
+    ></app-footer-card>
+  </div>
+  <div class="connect-div">
+    <div>connect:&nbsp;&nbsp;</div>
+    <app-find-me
+      [header]="header"
+      [darkMode]="darkMode"
+      [lr_direction]="true"
+    ></app-find-me>
+  </div>
 </fieldset>

@@ -1,1 +1,20 @@
-<p>contact-me works!</p>
+<div
+  class="first-block each-block super-center main"
+  [ngClass]="{
+    'day-without-bg': !darkMode,
+    'night-without-bg': darkMode
+  }"
+>
+  <h2>Contact Me</h2>
+  <p>
+    You can reach me by phone between 9:00 a.m. and 9:00 p.m. CST, Monday
+    through Friday. Otherwise, please use email.
+  </p>
+  <div class="block">
+    <div class="mode-block"><mat-icon>phone</mat-icon>&nbsp;&nbsp;Phone</div>
+    <a [innerText]="header.phone.value" [href]="header.phone.link"></a>
+
+    <div class="mode-block"><mat-icon>email</mat-icon>&nbsp;&nbsp;Email</div>
+    <a [innerText]="header.email.value" [href]="header.email.link"></a>
+  </div>
+</div>

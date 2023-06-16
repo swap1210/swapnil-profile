@@ -5,6 +5,7 @@ import { Welcome } from 'src/app/models/welcome';
 import { AuthService } from 'src/app/services/auth.service';
 import { CommonService } from 'src/app/services/common.service';
 import { AllSkills } from 'src/app/models/allSkills';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { AllSkills } from 'src/app/models/allSkills';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  public debugEnv = !environment.production;
   welcome: Welcome = {
     message: '',
     title: '',

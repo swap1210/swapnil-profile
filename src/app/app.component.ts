@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log(
       '%c' + 'Hi, Fellow Developer! 🙋🏽‍♂️',
-      'color: #7289DA; -webkit-text-stroke: 2px black; font-size: 42px; font-weight: bold;'
+      'color: #7289DA; -webkit-text-stroke: 2px black; font-size: 32px; font-weight: bold;'
     );
     let self = this;
     this.comm.body$.subscribe({

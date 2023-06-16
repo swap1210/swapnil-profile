@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   DoCheck,
@@ -17,7 +18,7 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './find-me.component.html',
   styleUrls: ['./find-me.component.scss'],
 })
-export class FindMeComponent implements OnInit, AfterViewInit {
+export class FindMeComponent implements OnInit, AfterViewChecked {
   @Input()
   lr_direction!: boolean;
   @Input()
@@ -28,8 +29,9 @@ export class FindMeComponent implements OnInit, AfterViewInit {
   @ViewChild('linkedinLogo') linkedinLogo!: ElementRef;
   @ViewChild('githubLogo') githubLogo!: ElementRef;
 
-  constructor(private renderer2: Renderer2, private comm: CommonService) {}
-  ngAfterViewInit(): void {
+  constructor(private renderer2: Renderer2) {}
+
+  ngAfterViewChecked(): void {
     this.renderer2.setAttribute(
       this.linkedinLogo.nativeElement,
       'd',
@@ -41,5 +43,7 @@ export class FindMeComponent implements OnInit, AfterViewInit {
       this.header.github.logo
     );
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.header.linkedin.logo);
+  }
 }

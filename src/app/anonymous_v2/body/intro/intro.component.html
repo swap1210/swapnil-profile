@@ -1,14 +1,14 @@
-<div class="each-block">
+<div class="first-block each-block">
   <div class="home-split-horiz">
     <div
-      class="appNameDiv fancy-font"
+      class="appNameDiv"
       [ngClass]="{
         'day-without-bg': !darkMode,
         'night-without-bg': darkMode
       }"
     >
       <h1 class="appName" [innerText]="header.appName"></h1>
-      <span class="appDesc">
+      <span class="appDesc fancy-font">
         Experienced&nbsp;
         <b
           *ngFor="let profile of header.appDesc; let i = index"
